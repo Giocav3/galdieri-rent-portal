@@ -8,6 +8,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -17,6 +31,20 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -26,6 +54,20 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -35,5 +77,19 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
     }
 ];

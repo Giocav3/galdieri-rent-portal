@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
 import {
@@ -15,10 +16,11 @@ export class ChatMockApi {
     private _messages: any[] = messagesData;
     private _profile: any = profileData;
 
+
     /**
      * Constructor
      */
-    constructor(private _fuseMockApiService: FuseMockApiService) {
+    constructor(private _fuseMockApiService: FuseMockApiService, private _httpClient: HttpClient) {
         // Register Mock API handlers
         this.registerHandlers();
 
@@ -41,6 +43,26 @@ export class ChatMockApi {
             })),
         }));
     }
+
+     private formatWebhookResponse(response: any): string {
+        const data = response.output.data;
+        const message = response.output.message;
+    
+        // Formatta i dati in un messaggio leggibile
+        const formattedMessage = `
+            ${message}
+            <br><br>
+            <strong>Dettagli Azienda:</strong>
+            <ul>
+                <li><strong>Nome:</strong> ${data.companyDetails.companyName}</li>
+                <li><strong>Partita IVA:</strong> ${data.companyDetails.vatCode}</li>
+                <li><strong>Indirizzo:</strong> ${data.address.streetName}, ${data.address.zipCode} ${data.address.town}</li>
+                <li><strong>ATECO:</strong> ${data.atecoClassification.code} - ${data.atecoClassification.description}</li>
+            </ul>
+        `;
+    
+        return formattedMessage;
+    } 
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
@@ -107,6 +129,71 @@ export class ChatMockApi {
                 // Return the response
                 return [200, updatedChat];
             });
+
+        // -----------------------------------------------------------------------------------------------------
+        // @ Send Message - POST
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onPost('api/apps/chat/send-message')
+            .reply(({ request }) => {
+                // Get the message and chat ID
+                const { chatId, messageText } = request.body;
+
+                // Find the chat
+                const chat = cloneDeep(this._chats.find((chat) => chat.id === chatId));
+
+                // Create a new message
+                const newMessage = {
+                    id: String(Math.random() + 'ai-id'), // Generate a unique ID
+                    chatId: chatId,
+                    contactId: 'me', // Assume the message is sent by the user
+                    value: messageText,
+                    isMine: true,
+                    createdAt: new Date(),
+                };
+
+                // Add the message to the chat
+                chat.messages.push(newMessage);
+
+                // Invia il messaggio al webhook di n8n
+                const webhookUrl = 'http://localhost:5678/webhook-test/2ed0f06a-91e3-4176-8372-1b74c0a0b598';
+                const payload = {
+                    chatId,
+                    messageText,
+                    timestamp: new Date().toISOString(),
+                };
+
+                const call =  this._httpClient.post(webhookUrl, payload).subscribe({
+                    next: (response: any) => {
+                        console.log('Messaggio inviato al webhook di n8n:', response);
+                        // Simulate an AI response
+                        let aiResponse = {
+                            id: String(Math.random() + 'ai-id'), // Generate a unique ID
+                            chatId: chatId,
+                            contactId: chat.contactId, // Assume the AI uses the contact ID of the chat
+                            value: this.formatWebhookResponse(response),
+                            isMine: false,
+                            createdAt: new Date(),
+                        }; 
+
+                        // Add the AI response to the chat
+                        chat.messages.push(aiResponse);
+                    },
+                    error: (error) => {
+                        console.error('Errore durante l\'invio al webhook di n8n:', error);
+                    },
+                });
+
+                console.log('call', call)
+
+                // Update the chat in the mock data
+                this._chats = this._chats.map((c) => (c.id === chatId ? chat : c));
+
+                // Return the updated chat
+                return [200, chat];
+            });
+
+               
 
         // -----------------------------------------------------------------------------------------------------
         // @ Contacts - GET

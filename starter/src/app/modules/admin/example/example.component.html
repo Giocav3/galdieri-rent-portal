@@ -1,9 +1,98 @@
+<mat-toolbar class="toolbar">
+  <mat-chip-listbox>
+      <mat-chip class="custom button" >
+          Clienti <span class="count">21</span>
+      </mat-chip>
+      <mat-chip >
+          Fornitori <span class="count">16</span>
+      </mat-chip>
+      <mat-chip >
+          Utilizzatori <span class="count">3</span>
+      </mat-chip>
+      <mat-chip >
+          Utenti <span class="count">32</span>
+      </mat-chip>
+  </mat-chip-listbox>
+
+  <span class="spacer"></span>
+
+
+
+  <!-- Bottoni icone -->
+  <div class="icon-button-group">
+
+      <!-- Bottone Filters -->
+  <button mat-button class="custom-button">
+    <mat-icon class="icon">filter_list</mat-icon> Filters
+</button>
+      <button mat-icon-button class="custom-icon-button">
+          <mat-icon>bar_chart</mat-icon>
+      </button>
+      <button mat-icon-button class="custom-icon-button">
+          <mat-icon>link</mat-icon>
+      </button>
+      <button mat-icon-button class="custom-icon-button">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+  </div>
+</mat-toolbar>
+
+
+
+
 <div class="flex min-w-0 flex-auto flex-col">
-    <!-- Main -->
-    <div class="flex-auto p-6 sm:p-10">
-        <!-- CONTENT GOES HERE -->
-        <div
-            class="h-400 max-h-400 min-h-400 rounded-2xl border-2 border-dashed border-gray-300"
-        ></div>
-    </div>
+  
+  <div class="flex-auto p-6 sm:p-10">
+      <form [formGroup]="form" class="bg-card mt-4 flex flex-col overflow-hidden rounded px-8 pt-10 shadow">
+          <p class="text-lg font-medium">Informazioni di Base</p>
+          <p class="text-secondary mb-6">
+            Inserisci le informazioni necessarie per aggiungere un nuovo contatto.
+          </p>
+        
+          
+          <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Tipologia Cliente</mat-label>
+            <mat-select formControlName="clientType">
+              @for (type of clientTypes; track type) {
+                <mat-option [value]="type">{{ type }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        
+          
+          @if (form.get('clientType').value === 'Azienda') {
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Partita IVA</mat-label>
+              <input matInput formControlName="piva"> 
+            </mat-form-field>
+          }
+        
+          @if (form.get('clientType').value === 'Persona Fisica') {
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Codice Fiscale</mat-label>
+              <input matInput formControlName="cf"> 
+            </mat-form-field>
+          }
+        
+          
+          <div class="-mx-8 mt-8 flex items-center justify-end border-t bg-gray-50 px-8 py-5 dark:bg-gray-700" style="gap: 10px">
+            <button mat-button (click)="onCancel()">Annulla</button>
+            <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">Invia</button>
+          </div>
+      </form>
+  </div>
 </div>
+
+
+
+<!-- Modale di caricamento -->
+<!-- <ng-template #loadingModal>
+<div class="p-4 text-center">
+  <fuse-loading-bar></fuse-loading-bar>
+  <p class="mt-2">In attesa dell'anagrafica...</p>
+</div>
+</ng-template> -->
+<!-- 
+<fuse-alert  [type]="typeAlert" [appearance]="'soft'" [name]="'alertBox'">
+{{ alertMessage }}
+</fuse-alert> -->

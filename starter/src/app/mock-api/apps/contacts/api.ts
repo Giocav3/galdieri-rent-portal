@@ -4,6 +4,7 @@ import {
     contacts as contactsData,
     countries as countriesData,
     tags as tagsData,
+    stakeholders as stakeholdersData
 } from 'app/mock-api/apps/contacts/data';
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
@@ -13,6 +14,7 @@ export class ContactsMockApi {
     private _contacts: any[] = contactsData;
     private _countries: any[] = countriesData;
     private _tags: any[] = tagsData;
+    private _stakeholders: any[] = stakeholdersData;
 
     /**
      * Constructor
@@ -185,6 +187,13 @@ export class ContactsMockApi {
         this._fuseMockApiService
             .onGet('api/apps/contacts/tags')
             .reply(() => [200, cloneDeep(this._tags)]);
+
+        // -----------------------------------------------------------------------------------------------------
+        // @ Stakeholders - GET
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onGet('api/apps/contacts/stakeholders')
+            .reply(() => [200, cloneDeep(this._stakeholders)]);
 
         // -----------------------------------------------------------------------------------------------------
         // @ Tags - POST

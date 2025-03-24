@@ -81,4 +81,25 @@ export class QuickChatService {
                 })
             );
     }
+
+    /**
+     * Send a message to the current chat
+     *
+     * @param chatId
+     * @param messageText
+     */
+    sendMessage(chatId: string, messageText: string): Observable<Chat> {
+        return this._httpClient
+            .post<Chat>('api/apps/chat/send-message', { chatId, messageText })
+            .pipe(
+                tap((updatedChat) => {
+                    // Update the current chat with the new messages
+                    this._chat.next(updatedChat);
+                })
+            );
+    }
+
+    updateChat(chat: Chat): Observable<Chat> {
+        return this._httpClient.patch<Chat>('api/apps/chat/chat', { id: chat.id, chat });
+    }
 }
