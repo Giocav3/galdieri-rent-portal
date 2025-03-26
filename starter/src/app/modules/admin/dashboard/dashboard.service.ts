@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { Apollo } from 'apollo-angular';
+import { STAKEHOLDER_COUNT_BY_TYPE } from '../stakeholders/graphql/stakeholders.queries';
 
 @Injectable({ providedIn: 'root' })
 export class DashboardService {
@@ -9,7 +11,7 @@ export class DashboardService {
     /**
      * Constructor
      */
-    constructor(private _httpClient: HttpClient) {}
+    constructor(private _httpClient: HttpClient, private apollo: Apollo) {}
 
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
@@ -37,6 +39,20 @@ export class DashboardService {
             })
         );
     }
+
+    getStakeholderCountByType(): Observable<{ type: string; count: number }[]> {
+          return this.apollo
+              .watchQuery<any>({
+                  query: STAKEHOLDER_COUNT_BY_TYPE
+              })
+              .valueChanges.pipe(
+                  map(result => result.data.stakeholderCountByType),
+                  tap((data) => {
+                      this._data.next(data);
+                      console.log(data);
+                  })
+              );
+      }
 }
 
 
