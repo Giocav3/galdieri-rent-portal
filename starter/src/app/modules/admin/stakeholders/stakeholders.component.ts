@@ -21,13 +21,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; // questo è fondamentale!
-import { ContactsDetailsComponent } from '../stakeholders/details/details.component'; // path corretto
-import { ContactsListComponent } from '../anagrafica/list/list.component';
-
+import { StakeHolderDetails } from '../stakeholders/details/details.component'; // path corretto
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'app-stakeholders',
   imports: [
+    RouterModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
@@ -43,8 +43,7 @@ import { ContactsListComponent } from '../anagrafica/list/list.component';
     MatSlideToggleModule,
     FormsModule,
     MatInputModule,
-    ContactsDetailsComponent,
-    ContactsListComponent
+    StakeHolderDetails
   ],
   templateUrl: './stakeholders.component.html',
   styleUrl: './stakeholders.component.scss'
@@ -66,7 +65,8 @@ export class StakeholdersComponent implements OnInit, OnDestroy {
   searchQuery: string = '';
   currentPage = 0;
   pageSize = 10;
-
+  selectedStakeholder: any = null;
+  showDetails: boolean = false;
   constructor(
     private _stakeholdersService: StakeholdersService,
     private _router: Router,
@@ -122,12 +122,20 @@ export class StakeholdersComponent implements OnInit, OnDestroy {
       });
   }
 
-  selectedStakeholder: any = null;
-  openStakeholderDetails(row) {
-    console.log("row: ", row)
-    this.selectedStakeholder = row;
-  }
 
+  openStakeholderDetails(row: any) {
+    this.selectedStakeholder = row;
+    setTimeout(() => {
+      this.showDetails = true;
+    }, 10); // Per triggerare la transizione
+  }
+  
+  closeDetails() {
+    this.showDetails = false;
+    setTimeout(() => {
+      this.selectedStakeholder = null;
+    }, 300); // Tempo per chiudere animazione
+  }
   
 
 }

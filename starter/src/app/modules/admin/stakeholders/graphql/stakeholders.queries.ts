@@ -67,3 +67,72 @@ export const SEARCH_STAKEHOLDERS = gql`
     }
   }
 `
+
+export const GET_STAKEHOLDER_BY_ID = gql`
+ query StakeholdersWithSharedTaxIdentifier($stakeholderId: ID!) {
+  stakeholder(id: $stakeholderId) {
+    id
+    stakeholderType
+    type
+    userDetails {
+      ... on ClientDetails {
+        iban
+        sector
+        from
+        convention
+      }
+      ... on SupplierDetails {
+        paymentMethod
+      }
+      ... on EmployeeDetails {
+        role
+        reference
+      }
+      ... on UtilizerDetails {
+        reference
+      }
+    }
+    companyName
+    taxIdentifier
+    personalData {
+      id
+      name
+      surname
+      fiscalCode
+      email
+      phone
+      gender
+      birthday
+      birthPlace
+      birthCounty
+      title
+      address
+      cap
+      province
+      common
+      region
+      houseNumber
+      latitude
+      longitude
+    }
+    companyData {
+      id
+      companyName
+      vatNumber
+      phone
+      email
+      region
+      province
+      common
+      cap
+      houseNumber
+      address
+      latitude
+      longitude
+      pec
+      sdiCode
+    }
+  }
+}
+`;
+
