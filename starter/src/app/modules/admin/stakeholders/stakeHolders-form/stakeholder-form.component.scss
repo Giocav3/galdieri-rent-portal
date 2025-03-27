@@ -1,0 +1,119 @@
+.stakeholder-form-section {
+    width: 100%;
+    padding: 2rem 1rem;
+    background-color: #f4f6f8;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .custom-stepper.full-labels {
+    padding-bottom: 2rem;
+  }
+
+  .custom-stepper .mat-horizontal-stepper-header-container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .custom-stepper .mat-step-header {
+    max-width: 100%;
+    flex: 1 1 auto;
+    white-space: nowrap;
+  }
+
+  .custom-stepper .mat-step-label {
+    font-weight: 600;
+    color: #1D1D1B; /* brand nero */
+  }
+
+  .custom-stepper .mat-step-icon {
+    // background-color: #E30613 !important; /* brand rosso */
+    color: #fff !important;
+  }
+
+  .step-icon {
+    // color: #E30613;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1D1D1B;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .full-width {
+    flex: 1 1 100%;
+  }
+
+  .half-width {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 260px;
+  }
+
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    justify-content: space-between;
+  }
+
+  .button-row.justify-end {
+    justify-content: flex-end;
+  }
+
+  .button-row button {
+    min-width: 130px;
+  }
+
+  mat-form-field.mat-form-field-invalid .mat-form-field-wrapper,
+  mat-form-field.ng-invalid.ng-touched .mat-form-field-wrapper {
+    // border-left: 4px solid #E30613; /* brand rosso per errori */
+    padding-left: 0.5rem;
+  }
+
+  mat-error {
+    font-size: 0.75rem;
+    // color: #E30613;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  mat-form-field {
+    transition: all 0.3s ease;
+  }
+
+  mat-form-field:hover .mat-form-field-outline,
+  mat-form-field.mat-focused .mat-form-field-outline {
+    border-color: #1D1D1B;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
