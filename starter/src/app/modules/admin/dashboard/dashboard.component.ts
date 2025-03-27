@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 
+import { BarplotComponent } from 'app/modules/widget/barplot/barplot.component';
+import { CardComponent } from 'app/modules/widget/card/card.component';
+
 @Component({
   selector: 'app-dashboard',
   imports: [
@@ -21,7 +24,9 @@ import { CommonModule } from '@angular/common';
     MatButtonToggleModule,
     NgApexchartsModule,
     MatTabsModule,
-    CommonModule
+    CommonModule,
+    BarplotComponent,
+    CardComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

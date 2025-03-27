@@ -1,12 +1,22 @@
 import { gql } from 'apollo-angular';
 
 export const STAKEHOLDER_COUNT_BY_TYPE = gql`
-  query StakeholderCountByType {
-    stakeholderCountByType {
+  query StakeholdersWithSharedTaxIdentifier {
+  stakeholderCountByType {
+    list {
       type
       count
     }
+    chart {
+      labels
+      series {
+        name
+        data
+      }
+    }
+    total
   }
+}
 `;
 
 export const GET_STAKEHOLDERS_BY_TYPE = gql`
