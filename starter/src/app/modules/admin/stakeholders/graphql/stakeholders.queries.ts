@@ -29,12 +29,8 @@ export const GET_STAKEHOLDERS_BY_TYPE = gql`
 
 
 export const GET_STAKEHOLDERS_WHITH_SHARED_TAXIDENTIFIER = gql`
-  query Query($stakeholderType: String!, $limit: Int, $skip: Int) {
-  stakeholdersWithSharedTaxIdentifier(type: $stakeholderType, limit: $limit, skip: $skip) {
-    matches {
-      id
-      stakeholderType
-    }
+  query StakeholdersWithSharedTaxIdentifier($filter: StakeholderFilterInput, $limit: Int, $skip: Int) {
+  stakeholdersWithSharedTaxIdentifier(filter: $filter, limit: $limit, skip: $skip) {
     stakeholder {
       id
       stakeholderType
@@ -42,6 +38,22 @@ export const GET_STAKEHOLDERS_WHITH_SHARED_TAXIDENTIFIER = gql`
       companyName
       taxIdentifier
     }
+    matches {
+      id
+      stakeholderType
+    }
   }
 }
 `;
+
+export const SEARCH_STAKEHOLDERS = gql`
+  query Query($limit: Int, $skip: Int) {
+    stakeholders(limit: $limit, skip: $skip) {
+      id
+      stakeholderType
+      type
+      companyName
+      taxIdentifier
+    }
+  }
+`

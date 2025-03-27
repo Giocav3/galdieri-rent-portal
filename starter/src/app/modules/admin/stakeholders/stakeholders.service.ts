@@ -5,6 +5,7 @@ import { Apollo } from 'apollo-angular';
 import { STAKEHOLDER_COUNT_BY_TYPE } from './graphql/stakeholders.queries';
 import { GET_STAKEHOLDERS_BY_TYPE } from './graphql/stakeholders.queries';
 import { GET_STAKEHOLDERS_WHITH_SHARED_TAXIDENTIFIER } from './graphql/stakeholders.queries';
+import { SEARCH_STAKEHOLDERS } from './graphql/stakeholders.queries';
 
 
 @Injectable({
@@ -88,5 +89,28 @@ private _data: BehaviorSubject<any> = new BehaviorSubject(null);
       })
       .valueChanges.pipe(map(result => result.data.stakeholdersWithSharedTaxIdentifier));
   }
+
+  searchStakeholders(type: string | null, query: string, limit: number, skip: number): Observable<any[]> {
+    return this.apollo
+      .watchQuery<any>({
+        query: GET_STAKEHOLDERS_WHITH_SHARED_TAXIDENTIFIER,
+        variables: {
+          filter: {
+            ...(type ? { type } : {}),
+            ...(query ? { query } : {})
+          },
+          limit,
+          skip
+        },
+        fetchPolicy: 'network-only'
+      })
+      .valueChanges.pipe(map(result => result.data.stakeholdersWithSharedTaxIdentifier));
+  }
+
+  getContactById(id: string): Observable<any> {
+          console.log("ottimo")
+          return 
+      }
+  
   
 }

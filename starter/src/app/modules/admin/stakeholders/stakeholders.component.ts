@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { TranslocoModule } from '@jsverse/transloco';
 import { ApexOptions, NgApexchartsModule } from 'ng-apexcharts';
-import { Subject, takeUntil } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { StakeholdersService } from './stakeholders.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -19,6 +19,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input'; // questo è fondamentale!
+import { ContactsDetailsComponent } from '../stakeholders/details/details.component'; // path corretto
+import { ContactsListComponent } from '../anagrafica/list/list.component';
+
 
 @Component({
   selector: 'app-stakeholders',
@@ -35,108 +40,94 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSortModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FormsModule,
+    MatInputModule,
+    ContactsDetailsComponent,
+    ContactsListComponent
   ],
   templateUrl: './stakeholders.component.html',
   styleUrl: './stakeholders.component.scss'
 })
-
 export class StakeholdersComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  countByType$ = this._stakeholdersService.getStakeholderCountByType();
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
+  private searchSubject: Subject<string> = new Subject<string>();
 
-  chartGithubIssues: ApexOptions = {};
-    chartStakeholders: ApexOptions;
-    chartClients: ApexOptions;
-    chartUsers: ApexOptions;
-    chartSuppliers: ApexOptions;
-    selectedProject: string = 'ACME Corp. Backend App';
-    data: any;
-    private _unsubscribeAll: Subject<any> = new Subject<any>();
+  tableDataSource = new MatTableDataSource<any>();
+  tableDisplayedColumns: string[] = ['type', 'name', 'taxIdentifier', 'matches'];
 
-    filteredStakeholders: any[] = [];
-    tableDataSource = new MatTableDataSource<any>();
-    tableDisplayedColumns: string[] = ['type', 'name', 'taxIdentifier', 'matches'];
-    currentType: string;
-    pageSize = 10;
-    currentPage = 0;
-    selectedStakeholderType: string = '';
-    
-    
-    
-    constructor(
-      private _stakeholdersService: StakeholdersService,  
-      private _router: Router,
-      private route: ActivatedRoute
-    ){}
-  
-    log(){
-      console.log(this.selectedProject)
-    }
-  
-    redirectToAnagrafica(){
-      this._router.navigate(['/anagrafica']);
-    }
-  
-    // ngOnInit(): void {
-    //   this._stakeholdersService.data$
-    //     .pipe(takeUntil(this._unsubscribeAll))
-    //     .subscribe((data) => {
-    //         this.data = data;
-    //         console.log(data)
-    //     });
-    // }
+  filteredStakeholders: any[] = [];
+  totalItems = 0;
 
-    ngOnInit(): void {
-      this.route.queryParams.subscribe(params => {
-        const type = params['type'];
-        if (type) {
-          this.selectedStakeholderType = type;
-          this._stakeholdersService.getStakeholdersWithSharedTaxIdentifier(type, this.pageSize, 0).subscribe((data) => {
-            this.filteredStakeholders = data;
-            this.tableDataSource.data = data;
-          });
-        }
+  stakeholderTypes: string[] = ['Utilizzatore', 'Cliente', 'Dipendente', 'Fornitore'];
+  selectedStakeholderType: string = 'Tutti';
+  searchQuery: string = '';
+  currentPage = 0;
+  pageSize = 10;
+
+  constructor(
+    private _stakeholdersService: StakeholdersService,
+    private _router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const type = params['type'];
+      if (type) this.selectedStakeholderType = type;
+      this.fetchFilteredStakeholders(this.selectedStakeholderType, this.searchQuery);
+    });
+
+    this.searchSubject
+      .pipe(debounceTime(100), distinctUntilChanged(), takeUntil(this._unsubscribeAll))
+      .subscribe((query: string) => {
+        this.fetchFilteredStakeholders(this.selectedStakeholderType, query);
       });
-    }
+  }
 
-    
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
+
+  onSearchChange(): void {
+    this.searchSubject.next(this.searchQuery);
+  }
+
+  onTypeChange(type: string): void {
+    this.selectedStakeholderType = type;
+    this.currentPage = 0;
+    this.fetchFilteredStakeholders(type, this.searchQuery);
+  }
+
+  onPageChange(event: PageEvent): void {
+    this.pageSize = event.pageSize;
+    this.currentPage = event.pageIndex;
+    this.fetchFilteredStakeholders(this.selectedStakeholderType, this.searchQuery);
+  }
+
+  fetchFilteredStakeholders(type: string, query: string): void {
+    const limit = this.pageSize;
+    const skip = this.currentPage * this.pageSize;
+
+    this._stakeholdersService
+      .searchStakeholders(type !== 'Tutti' ? type : null, query, limit, skip)
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((data: any[]) => {
+        this.filteredStakeholders = data;
+        this.tableDataSource.data = data;
+        this.totalItems = data.length; // o data.total se usi GraphQL con count separato
+      });
+  }
+
+  selectedStakeholder: any = null;
+  openStakeholderDetails(row) {
+    console.log("row: ", row)
+    this.selectedStakeholder = row;
+  }
+
   
-    ngOnDestroy(): void {
-    }
-
-    toggleCompleted(event) {
-
-    }
-
-    
-
-    // filterByType(type: string): void {
-    //   this.currentType = type;
-    //   this.selectedStakeholderType = type;
-    
-    //   const skip = this.currentPage * this.pageSize;
-    
-    //   this._stakeholdersService.getStakeholdersByType(type, this.pageSize, skip).subscribe((data) => {
-    //     this.filteredStakeholders = data;
-    //     this.tableDataSource.data = data;
-    //   });
-    // }
-
-    ngAfterViewInit() {
-      this.tableDataSource.paginator = this.paginator;
-    }
-    
-
-
-    // onPageChange(event: PageEvent): void {
-    //   this.pageSize = event.pageSize;
-    //   this.currentPage = event.pageIndex;
-
-    //   this.filterByType(this.currentType); // chiamata aggiornata con nuovi offset
-    // }
-
-
 
 }

@@ -72,6 +72,7 @@ export class AnagraficaService {
      * Get contacts
      */
     getContacts(): Observable<Contact[]> {
+        console.log("dadsdsd")
         const url = `api/apps/contacts/all`;
         
         return this._httpClient.get<Contact[]>(url).pipe(
@@ -115,6 +116,7 @@ export class AnagraficaService {
      * Get contact by id
      */
     getContactById(id: string): Observable<Contact> {
+        console.log("aaaaaaaa")
         return this._contacts.pipe(
             take(1),
             map((contacts) => {
