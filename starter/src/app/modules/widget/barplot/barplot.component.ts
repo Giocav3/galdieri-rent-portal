@@ -14,7 +14,7 @@ export class BarplotComponent {
   
 
   @Input() chartData: any;
-  @Output() barClick = new EventEmitter<string>(); // 🔥
+  @Output() barClick = new EventEmitter<string>();
 
   
   barplot: any
@@ -23,7 +23,16 @@ export class BarplotComponent {
   ngOnInit(): void {
 
     this.barplot = {
-      chart: { type: 'bar', height: '300' },
+      chart: { 
+        type: 'bar', 
+        height: '280',
+        events: {
+          dataPointSelection: (event: any, chartContext: any, config: any) => {
+            const selectedLabel = config.w.config.xaxis.categories[config.dataPointIndex];
+            this.barClick.emit(selectedLabel);
+          }
+        }
+      },
       colors: ['#6366F1', '#10B981'],
       dataLabels: { enabled: false },
       labels: this.chartData?.labels ?? [],
@@ -42,6 +51,7 @@ export class BarplotComponent {
       xaxis: {
         categories: this.chartData?.labels ?? [],
       },
+      
     };
   }
   
