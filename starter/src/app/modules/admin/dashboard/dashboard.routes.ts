@@ -8,7 +8,7 @@ export default [
         path: '',
         component: DashboardComponent,
         resolve: {
-            data: () => inject(DashboardService).getData(),
+            data: () => inject(DashboardService).getStakeholderCountByType(),
         },
     },
 ] as Routes;

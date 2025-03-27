@@ -17,6 +17,10 @@ import { provideIcons } from 'app/core/icons/icons.provider';
 import { MockApiService } from 'app/mock-api';
 import { firstValueFrom } from 'rxjs';
 import { TranslocoHttpLoader } from './core/transloco/transloco.http-loader';
+import { HttpLink } from 'apollo-angular/http';
+import { provideApollo } from 'apollo-angular';
+import { InMemoryCache } from '@apollo/client/core';
+
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -32,6 +36,15 @@ export const appConfig: ApplicationConfig = {
             provide: DateAdapter,
             useClass: LuxonDateAdapter,
         },
+        provideApollo(() => {
+            const httpLink = inject(HttpLink);
+       
+            return {
+              link: httpLink.create({ uri: 'http://localhost:4001/graphql' }),
+              cache: new InMemoryCache(),
+              // other options...
+            };
+          }),
         {
             provide: MAT_DATE_FORMATS,
             useValue: {
