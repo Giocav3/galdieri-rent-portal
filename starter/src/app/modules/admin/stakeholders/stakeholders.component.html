@@ -101,18 +101,19 @@
       </div>
     </div>
     <!-- Drawer Dettagli -->
-    <div
-    *ngIf="selectedStakeholder"
-    class="fixed top-0 right-15 h-full w-full sm:w-1/2 lg:max-w-[800px] z-50 bg-white shadow-lg transition-transform transform duration-300 ml-6"
-    [class.translate-x-full]="!showDetails"
-    [class.translate-x-0]="showDetails"
-  >
-    <app-details
-      [contact]="selectedStakeholder"
-      (close)="closeDetails()"
-    ></app-details>
-  </div>
+   
   
+  <div
+  *ngIf="selectedStakeholder"
+  class="fixed top-0 right-0 sm:right-4 lg:right-15 h-full w-full sm:w-1/2 lg:max-w-[800px] z-50 bg-white shadow-lg transition-transform transform duration-300 ml-6"
+  [class.translate-x-full]="!showDetails"
+  [class.translate-x-0]="showDetails"
+>
+  <app-details
+    [contact]="selectedStakeholder"
+    (close)="closeDetails()"
+  ></app-details>
+</div>
 
   </div>
 </div>

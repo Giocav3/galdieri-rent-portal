@@ -16,6 +16,8 @@ import {
   import { StakeholdersService } from '../stakeholders.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
   
   @Component({
@@ -35,6 +37,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
     matchedStakeholders = signal<any[]>([]);
     loadingMatches = signal(false);
     readonly panelOpenState = signal(false);
+
+    constructor(private snackBar: MatSnackBar) {}
+
+
     ngOnChanges(changes: SimpleChanges): void {
       if (changes['contact'] && this.contact?.stakeholder) {
         console.log('▶️ Stakeholder aggiornato:', JSON.stringify(this.contact,null,2));
@@ -59,6 +65,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
     }
     
   
+    copyToClipboard(value: string): void {
+      if (navigator.clipboard && value) {
+        navigator.clipboard.writeText(value).then(() => {
+          this.snackBar.open('Valore copiato negli appunti!', 'Chiudi', { duration: 2000 });
+        });
+      }
+    }
     loadMatches() {
       const matchIds = this.contact?.matches?.map(m => m.id) || [];
       if (!matchIds.length) {
