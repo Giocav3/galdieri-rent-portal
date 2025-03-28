@@ -6,7 +6,8 @@ import {
     OnChanges,
     SimpleChanges,
     signal,
-    inject
+    inject,
+    ChangeDetectionStrategy
   } from '@angular/core';
   import { CommonModule } from '@angular/common';
   import { MatIconModule } from '@angular/material/icon';
@@ -14,11 +15,15 @@ import {
   import { MatDividerModule } from '@angular/material/divider';
   import { StakeholdersService } from '../stakeholders.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatExpansionModule} from '@angular/material/expansion';
+
   
   @Component({
     selector: 'app-details',
     standalone: true,
-    imports: [CommonModule, MatIconModule, MatTooltipModule, MatDividerModule,MatToolbarModule,MatIconModule,MatIconModule,MatIconModule],
+    imports: [CommonModule, MatIconModule, MatTooltipModule, MatDividerModule,MatToolbarModule,MatExpansionModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+
     templateUrl: './details.component.html',
   })
   export class StakeHolderDetails implements OnChanges {
@@ -29,7 +34,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     editMode = false
     matchedStakeholders = signal<any[]>([]);
     loadingMatches = signal(false);
-  
+    readonly panelOpenState = signal(false);
     ngOnChanges(changes: SimpleChanges): void {
       if (changes['contact'] && this.contact?.stakeholder) {
         console.log('▶️ Stakeholder aggiornato:', JSON.stringify(this.contact,null,2));
