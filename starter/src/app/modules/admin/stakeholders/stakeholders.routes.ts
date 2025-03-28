@@ -8,14 +8,21 @@ export default [
     {
         path: '',
         component: StakeholdersComponent,
-        resolve: {
-            data: () => inject(StakeholdersService).getStakeholderCountByType(),
+        data: {
+            breadcrumb: 'Dashboard', // 👈 AGGIUNTO
         },
-    }, {
+        resolve: {
+            data: () => inject(StakeholdersService).getStakeholderDashboard(),
+        },
+    },
+    {
         path: 'new',
         component: StakeholderFormComponent,
+        // data: {
+        //     breadcrumb: 'Crea', // 👈 AGGIUNTO
+        // },
         // resolve: {
-        //     data: () => inject(StakeholdersService).getStakeholderCountByType(),
+        //     data: () => inject(StakeholdersService).getStakeholderDashboard(),
         // },
     },
 ] as Routes;
