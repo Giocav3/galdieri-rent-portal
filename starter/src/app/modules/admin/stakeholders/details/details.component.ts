@@ -13,11 +13,12 @@ import {
   import { MatTooltipModule } from '@angular/material/tooltip';
   import { MatDividerModule } from '@angular/material/divider';
   import { StakeholdersService } from '../stakeholders.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
   
   @Component({
     selector: 'app-details',
     standalone: true,
-    imports: [CommonModule, MatIconModule, MatTooltipModule, MatDividerModule],
+    imports: [CommonModule, MatIconModule, MatTooltipModule, MatDividerModule,MatToolbarModule,MatIconModule,MatIconModule,MatIconModule],
     templateUrl: './details.component.html',
   })
   export class StakeHolderDetails implements OnChanges {
@@ -25,7 +26,7 @@ import {
     @Output() close = new EventEmitter<void>();
   
     private stakeholdersService = inject(StakeholdersService);
-  
+    editMode = false
     matchedStakeholders = signal<any[]>([]);
     loadingMatches = signal(false);
   
@@ -35,16 +36,23 @@ import {
         this.loadMatches();
       }
     }
-  
+
+    toggleEditMode(value: boolean) {
+      this.editMode = value;
+    }
+    
+  //METODO DI CHIUSURA
     closePanel() {
       this.close.emit();
     }
-  
-    getInitials(data?: any): string {
-        if (!data?.name && !data?.surname) return '—';
-        return ((data?.name?.[0] || '') + (data?.surname?.[0] || '')).toUpperCase();
-      }
-      
+    //METODO PER PRENDERE LE INIZIALI 
+    getInitialsFromString(value?: string): string {
+      if (!value) return '—';
+      const parts = value.trim().split(' ');
+      if (parts.length === 1) return parts[0][0].toUpperCase();
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    
   
     loadMatches() {
       const matchIds = this.contact?.matches?.map(m => m.id) || [];
@@ -64,6 +72,7 @@ import {
         .then(results => {
           console.log('✅ Match caricati:', JSON.stringify(results,null,2));
           this.matchedStakeholders.set(results);
+          console.log('matchedStakeholders',this.matchedStakeholders)
           this.loadingMatches.set(false);
         })
         .catch(error => {

@@ -1,109 +1,232 @@
-<div class="flex w-full flex-col h-full overflow-hidden">
-    <!-- Header con tasto chiusura -->
-    <div class="sticky top-0 z-20 bg-accent-100 dark:bg-accent-700 px-8 sm:px-12 shadow">
-      <div class="mx-auto flex w-full max-w-3xl items-center justify-end py-4">
-        <button mat-icon-button matTooltip="Close" (click)="closePanel()">
-          <mat-icon class="text-white" svgIcon="heroicons_outline:x-mark"></mat-icon>
+<div class="flex w-full flex-col h-full overflow-auto">
+  <!-- View mode -->
+  <ng-container *ngIf="!editMode">
+    <!-- Header -->
+    <div class="relative h-40 w-full bg-primary-100 dark:bg-primary-700 px-8 sm:h-48 sm:px-12">
+      <!-- Close button -->
+      <div class="mx-auto flex w-full max-w-3xl items-center justify-end pt-6">
+        <button mat-icon-button [matTooltip]="'Chiudi'" (click)="closePanel()">
+          <mat-icon class="text-white" [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
         </button>
       </div>
     </div>
-  
-    <!-- Contenuto scrollabile -->
-    <div class="flex-auto overflow-auto">
-      <div class="flex flex-col items-center p-6 sm:p-12">
-        <div class="w-full max-w-3xl">
-  
+
+
+    <!-- Content -->
+    <div class="relative flex flex-col items-center p-6 pt-0 sm:p-12 sm:pt-0 overflow-auto max-h-[calc(100vh-10rem)]">
+      <div class="w-full max-w-3xl">
+        <!-- Avatar and actions -->
+        <div class="-mt-16 flex items-end">
           <!-- Avatar -->
-          <div class="-mt-16 flex items-end">
-            <div class="flex h-32 w-32 items-center justify-center overflow-hidden rounded-full ring-4 bg-gray-200 text-5xl font-bold uppercase text-gray-600 dark:bg-gray-700 dark:text-gray-200">
-              {{ getInitials(matchedStakeholders()[0]?.personalData) }}
+          <div class="ring-bg-card flex h-32 w-32 items-center justify-center overflow-hidden rounded-full ring-4">
+            <div
+              class="flex h-full w-full items-center justify-center overflow-hidden rounded bg-gray-200 text-8xl font-bold uppercase leading-none text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+              {{ getInitialsFromString(contact.stakeholder.companyName) }}
             </div>
           </div>
-  
-          <!-- Nome Completo -->
-          <div class="mt-3 truncate text-4xl font-bold">
-            {{ matchedStakeholders()[0]?.personalData.title }} {{ matchedStakeholders()[0]?.personalData.name }} {{ matchedStakeholders()[0]?.personalData.surname }}
+          <!-- Actions -->
+          <div class="mb-1 ml-auto flex items-center">
+            <button mat-stroked-button (click)="toggleEditMode(true)">
+              <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
+              <span class="ml-2">Edit</span>
+            </button>
           </div>
-  
-          <!-- Informazioni principali -->
-          <div class="mt-4 flex flex-col space-y-8 border-t pt-6">
-  
-            <div class="flex sm:items-center">
-              <mat-icon svgIcon="heroicons_outline:briefcase"></mat-icon>
-              <div class="ml-6 leading-6">
-                {{ contact.stakeholder.stakeholderType }} - {{ contact.stakeholder.type }}
-              </div>
-            </div>
-  
-            <div class="flex sm:items-center">
-              <mat-icon svgIcon="heroicons_outline:building-office-2"></mat-icon>
-              <div class="ml-6 leading-6">
-                {{ contact.stakeholder.companyName }}
-              </div>
-            </div>
-  
-            <div class="flex sm:items-center">
-              <mat-icon svgIcon="heroicons_outline:identification"></mat-icon>
-              <div class="ml-6 leading-6">
-                {{ contact.stakeholder.taxIdentifier }}
-              </div>
-            </div>
-  
-            <div class="flex flex-col space-y-2">
-              <div class="flex">
-                <mat-icon svgIcon="heroicons_outline:envelope"></mat-icon>
-                <div class="ml-6">{{ matchedStakeholders()[0]?.personalData.email }}</div>
-              </div>
-  
-              <div class="flex">
-                <mat-icon svgIcon="heroicons_outline:phone"></mat-icon>
-                <div class="ml-6">{{ matchedStakeholders()[0]?.personalData.phone }}</div>
-              </div>
-  
-              <div class="flex">
-                <mat-icon svgIcon="heroicons_outline:map-pin"></mat-icon>
-                <div class="ml-6">
-                  {{ matchedStakeholders()[0]?.personalData.address }}, {{ matchedStakeholders()[0]?.personalData.houseNumber }},<br>
-                  {{ matchedStakeholders()[0]?.personalData.common }} ({{ matchedStakeholders()[0]?.personalData.province }}) - {{ matchedStakeholders()[0]?.personalData.cap }}
-                </div>
-              </div>
-  
-              <div class="flex">
-                <mat-icon svgIcon="heroicons_outline:cake"></mat-icon>
-                <div class="ml-6">
-                  Nato a {{ matchedStakeholders()[0]?.personalData.birthPlace }} ({{ matchedStakeholders()[0]?.personalData.birthCounty }}) il {{ matchedStakeholders()[0]?.personalData.birthday | date:'dd/MM/yyyy' }}
-                </div>
-              </div>
-  
-              <div class="flex">
-                <mat-icon svgIcon="heroicons_outline:user"></mat-icon>
-                <div class="ml-6">
-                  Codice Fiscale: {{ matchedStakeholders()[0]?.personalData.fiscalCode }}
-                </div>
-              </div>
+        </div>
+
+        <!-- Company Name -->
+        <div class="mt-3 truncate text-4xl font-bold">
+          {{ contact.stakeholder.companyName }}
+        </div>
+
+        <!-- Tags -->
+        <div *ngIf="contact?.matches?.length > 0" class="mt-2 flex flex-wrap items-center">
+          <div *ngFor="let match of contact.matches; trackBy: trackByMatchId">
+            <div
+              class="mb-3 mr-3 flex items-center justify-center rounded-full bg-gray-100 px-3 py-1 text-gray-500 dark:bg-gray-700 dark:text-gray-300 text-sm font-medium">
+              {{ match.stakeholderType }}
             </div>
           </div>
-  
-          <!-- Lista Stakeholders Collegati -->
-          <div class="mt-8 border-t pt-6" *ngIf="matchedStakeholders().length > 1">
-            <h3 class="text-xl font-semibold">Stakeholders Collegati</h3>
-            <div class="space-y-4 mt-4">
-              <div *ngFor="let match of matchedStakeholders().slice(1)" class="rounded border p-4 shadow-sm">
-                <div class="font-bold">{{ match.personalData.title }} {{ match.personalData.name }} {{ match.personalData.surname }}</div>
-                <div class="text-sm text-gray-600">{{ match.stakeholderType }} - {{ match.type }}</div>
-                <div class="text-sm">{{ match.companyName }}</div>
-                <div class="text-sm">{{ match.taxIdentifier }}</div>
-                <div class="text-sm">{{ match.personalData.email }}</div>
-                <div class="text-sm">{{ match.personalData.phone }}</div>
-                <div class="text-sm">
-                  {{ match.personalData.address }}, {{ match.personalData.houseNumber }},<br>
-                  {{ match.personalData.common }} ({{ match.personalData.province }}) - {{ match.personalData.cap }}
+        </div>
+
+        <!-- Dati principali -->
+        <div class="mt-4 flex flex-col space-y-8 border-t pt-6">
+          <mat-expansion-panel *ngIf="matchedStakeholders()[0] as match">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dettagli del match
+              </mat-panel-title>
+              <mat-panel-description>
+                Clicca per espandere
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- Dati anagrafici -->
+            <div *ngIf="match.type =='Persona fisica'">
+              <div class="pt-6 border-t mt-6" class="text-lg font-semibold mt-4 mb-2">Dati anagrafici</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div *ngIf="match.personalData?.name">👤 Nome: {{ match.personalData.name }}</div>
+                <div *ngIf="match.personalData?.surname">👤 Cognome: {{ match.personalData.surname }}</div>
+                <div *ngIf="match.personalData?.fiscalCode">🆔 Codice fiscale: {{ match.personalData.fiscalCode }}</div>
+                <div *ngIf="match.personalData?.email">📧 Email: {{ match.personalData.email }}</div>
+                <div *ngIf="match.personalData?.phone">📞 Telefono: {{ match.personalData.phone }}</div>
+                <div *ngIf="match.personalData?.gender">⚧ Genere: {{ match.personalData.gender }}</div>
+                <div *ngIf="match.personalData?.birthday">🎂 Nascita: {{ match.personalData.birthday | date: 'longDate'
+                  }}</div>
+                <div *ngIf="match.personalData?.birthPlace">🏡 Luogo di nascita: {{ match.personalData.birthPlace }}
                 </div>
+                <div *ngIf="match.personalData?.birthCounty">📍 Provincia nascita: {{ match.personalData.birthCounty }}
+                </div>
+                <div *ngIf="match.personalData?.title">📛 Titolo: {{ match.personalData.title }}</div>
+                <div *ngIf="match.personalData?.address">📬 Indirizzo: {{ match.personalData.address }}</div>
+                <div *ngIf="match.personalData?.houseNumber">🏠 Civico: {{ match.personalData.houseNumber }}</div>
+                <div *ngIf="match.personalData?.cap">📮 CAP: {{ match.personalData.cap }}</div>
+                <div *ngIf="match.personalData?.province">📍 Provincia: {{ match.personalData.province }}</div>
+                <div *ngIf="match.personalData?.common">🏘️ Comune: {{ match.personalData.common }}</div>
+                <div *ngIf="match.personalData?.region">🌍 Regione: {{ match.personalData.region }}</div>
+                <div *ngIf="match.personalData?.latitude">🧭 Latitudine: {{ match.personalData.latitude }}</div>
+                <div *ngIf="match.personalData?.longitude">🧭 Longitudine: {{ match.personalData.longitude }}</div>
               </div>
             </div>
+            <!-- Dati aziendali -->
+            <div *ngIf="match.type !='Persona fisica'" class="pt-6 border-t mt-6">
+              <div class="text-lg font-semibold mb-2">Dati aziendali</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div *ngIf="match.companyData?.companyName">🏢 Ragione sociale: {{ match.companyData.companyName }}
+                </div>
+                <div *ngIf="match.companyData?.vatNumber">💼 Partita IVA: {{ match.companyData.vatNumber }}</div>
+                <div *ngIf="match.companyData?.email">📧 Email aziendale: {{ match.companyData.email }}</div>
+                <div *ngIf="match.companyData?.phone">📞 Telefono azienda: {{ match.companyData.phone }}</div>
+                <div *ngIf="match.companyData?.address">📬 Indirizzo sede: {{ match.companyData.address }}</div>
+                <div *ngIf="match.companyData?.houseNumber">🏠 Civico sede: {{ match.companyData.houseNumber }}</div>
+                <div *ngIf="match.companyData?.cap">📮 CAP sede: {{ match.companyData.cap }}</div>
+                <div *ngIf="match.companyData?.province">📍 Provincia: {{ match.companyData.province }}</div>
+                <div *ngIf="match.companyData?.common">🏘️ Comune: {{ match.companyData.common }}</div>
+                <div *ngIf="match.companyData?.region">🌍 Regione: {{ match.companyData.region }}</div>
+                <div *ngIf="match.companyData?.pec">📨 PEC: {{ match.companyData.pec }}</div>
+                <div *ngIf="match.companyData?.sdiCode">📦 Codice SDI: {{ match.companyData.sdiCode }}</div>
+                <div *ngIf="match.companyData?.latitude">🧭 Latitudine: {{ match.companyData.latitude }}</div>
+                <div *ngIf="match.companyData?.longitude">🧭 Longitudine: {{ match.companyData.longitude }}</div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </div>
+
+
+
+        <!-- user details -->
+        <div *ngFor="let match of matchedStakeholders(); let i = index"
+          class="mt-4 flex flex-col space-y-6 border-t pt-6">
+
+
+          <!-- client details -->
+          <div *ngIf="match.stakeholderType == 'Cliente'">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Cliente
+                </mat-panel-title>
+                <mat-panel-description>
+                  Clicca per espandere
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- USER DETAILS: solo se Cliente -->
+              <div class="pt-6 border-t mt-6">
+                <div class="text-lg font-semibold mb-2">Dettagli cliente</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div *ngIf="match.userDetails?.iban">🏦 IBAN: {{ match.userDetails.iban }}</div>
+                  <div *ngIf="match.userDetails?.clientCode">🧾 Codice cliente: {{ match.userDetails.clientCode }}</div>
+                  <div *ngIf="match.userDetails?.origin">🌐 Origine: {{ match.userDetails.origin }}</div>
+                  <div *ngIf="match.userDetails?.businessSector">🏭 Settore: {{ match.userDetails.businessSector }}
+                  </div>
+                  <div *ngIf="match.userDetails?.clientType">🧑‍💼 Tipo cliente: {{ match.userDetails.clientType }}
+                  </div>
+                  <div *ngIf="match.userDetails?.agreement">📃 Convenzione: {{ match.userDetails.agreement }}</div>
+                  <div *ngIf="match.userDetails?.sdiCode">📦 Codice SDI: {{ match.userDetails.sdiCode }}</div>
+                </div>
+              </div>
+
+              <!-- COMPANY DATA -->
+
+            </mat-expansion-panel>
+
           </div>
-  
+
+
+          <!-- fornitore details -->
+          <div *ngIf="match.stakeholderType == 'Fornitore'">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Fornitore
+                </mat-panel-title>
+                <mat-panel-description>
+                  Clicca per espandere
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- USER DETAILS: solo se Cliente -->
+              <div class="pt-6 border-t mt-6">
+                <div class="text-lg font-semibold mb-2">Dettagli Fornitore</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div *ngIf="match.userDetails?.methodPayment">🏦 methodPayment: {{ match.userDetails.methodPayment }}
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+
+
+          <!-- dipendente details -->
+          <div *ngIf="match.stakeholderType == 'Dipendente'">
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Dipendente
+                </mat-panel-title>
+                <mat-panel-description>
+                  Clicca per espandere
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- USER DETAILS: solo se Cliente -->
+              <div class="pt-6 border-t mt-6">
+                <div class="text-lg font-semibold mb-2">Dettagli Dipendente</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div *ngIf="match.userDetails?.role">🏦 Ruolo: {{ match.userDetails.role }}</div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+
+
+          <!-- utilizzatore details -->
+          <div *ngIf="match.stakeholderType == 'Utilizzatore'">
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Utilizzatore
+                </mat-panel-title>
+                <mat-panel-description>
+                  Clicca per espandere
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- USER DETAILS: solo se Cliente -->
+              <div class="pt-6 border-t mt-6">
+                <div class="text-lg font-semibold mb-2">Dettagli Utilizzatore</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div *ngIf="match.userDetails?.reference">🏦 Point associato: {{ match.userDetails.reference }}</div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+
+
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+</div>
