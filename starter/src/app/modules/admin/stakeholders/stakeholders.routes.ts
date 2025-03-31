@@ -7,21 +7,24 @@ import { StakeholderFormComponent } from './stakeHolders-form/stakeholder-form.c
 import { StakeholdersService } from './stakeholders.service';
 
 export default [
-  {
-    path: '',
-    component: StakeholdersComponent,
-    resolve: {
-      data: () => inject(StakeholdersService).getStakeholderCountByType(),
+    {
+        path: '',
+        component: StakeholdersComponent,
+        data: {
+            breadcrumb: 'Dashboard', // 👈 AGGIUNTO
+        },
+        resolve: {
+            data: () => inject(StakeholdersService).getStakeholderCountByType(),
+        },
     },
-    children: [
-      {
-        path: ':id',
-        component: StakeHolderDetails,
-      }
-    ]
-  },
-  {
-    path: 'new',
-    component: StakeholderFormComponent,
-  }
+    {
+        path: 'new',
+        component: StakeholderFormComponent,
+        // data: {
+        //     breadcrumb: 'Crea', // 👈 AGGIUNTO
+        // },
+        // resolve: {
+        //     data: () => inject(StakeholdersService).getStakeholderCountByType(),
+        // },
+    },
 ] as Routes;

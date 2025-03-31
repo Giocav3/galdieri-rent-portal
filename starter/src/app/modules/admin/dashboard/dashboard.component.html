@@ -64,7 +64,7 @@
                         <div class="mt-8 w-full grid grid-cols-1 gap-6 sm:mt-4 lg:grid-cols-2">
                         <!-- Barplot (sinistra su desktop, sopra su mobile) -->
                         <div class="w-full">
-                            <app-barplot [chartData]="data.chart" (barClick)="filterStakeholderByType($event)"></app-barplot>
+                            <app-barplot [chartData]="data.chart" (barClick)="filterStakeholderByType1($event)"></app-barplot>
                         </div>
                     
                         <!-- Overview cards (destra su desktop, sotto su mobile) -->
@@ -86,7 +86,7 @@
                             </div>
                         </div> -->
                         <div class="flex flex-col w-full">
-                            <app-card [data]="data.list" (cardClick)="filterStakeholderByType($event)"></app-card>
+                            <app-card [data]="data.list" [total]="total" (cardClick)="filterStakeholderByType($event)"></app-card>
                         </div>
                         </div>
                     </div>

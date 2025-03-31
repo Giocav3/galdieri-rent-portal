@@ -5,23 +5,21 @@
   
     <div class="w-full">
       <apx-chart
-        *ngIf="barplot"
-        class="w-full h-[320px]"
-        [chart]="barplot.chart"
-        [colors]="barplot.colors"
-        [dataLabels]="barplot.dataLabels"
-        [grid]="barplot.grid"
-        [labels]="barplot.labels"
-        [legend]="barplot.legend"
-        [plotOptions]="barplot.plotOptions"
-        [series]="barplot.series"
-        [states]="barplot.states"
-        [stroke]="barplot.stroke"
-        [tooltip]="barplot.tooltip"
-        [xaxis]="barplot.xaxis"
-        [yaxis]="barplot.yaxis"
-        (dataPointSelection)="onClick($event)"
-      ></apx-chart>
+      *ngIf="barplot"
+      class="w-full h-[320px]"
+      [chart]="barplot.chart"
+      [colors]="barplot.colors"
+      [dataLabels]="barplot.dataLabels"
+      [legend]="barplot.legend"
+      [plotOptions]="barplot.plotOptions"
+      [series]="barplot.series"
+      [states]="barplot.states"
+      [stroke]="barplot.stroke"
+      [tooltip]="barplot.tooltip"
+      [xaxis]="barplot.xaxis"
+      [yaxis]="barplot.yaxis"
+    ></apx-chart>
+    
     </div>
   </div>
   

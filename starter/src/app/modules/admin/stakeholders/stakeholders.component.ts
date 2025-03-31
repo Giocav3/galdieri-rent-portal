@@ -69,14 +69,15 @@ export class StakeholdersComponent implements OnInit, OnDestroy {
   showDetails: boolean = false;
   constructor(
     private _stakeholdersService: StakeholdersService,
-    private _router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       const type = params['type'];
+      const query = params['query']
       if (type) this.selectedStakeholderType = type;
+      if (query) this.searchQuery = query;
       this.fetchFilteredStakeholders(this.selectedStakeholderType, this.searchQuery);
     });
 
