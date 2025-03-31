@@ -128,36 +128,49 @@ export class ExampleComponent implements OnDestroy, OnInit {
     this.selectedTab = tab;
   }
 
-  async onSubmit(): Promise<void> {
+  async onSubmit(): Promise<any> {
     if (this.form.valid) {
-        // const dialogRef = this.dialog.open(this.loadingModal, {
-        //   disableClose: true // Impedisce la chiusura della modale cliccando fuori
-        // });
-        this.showLoadingBar();
-        const url: string = "http://localhost:5678/webhook-test/generate";
-      
-        try {
-          const response = await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ piva: this.form.get('piva')?.value }), // Assumendo che "piva" sia il valore del campo "contact"
-          });
-          console.log("Status Code:", response.status);
-           this.typeAlert = 'success'
-           if (response.status === 200 ) {
-            this.showConfirmationDialog('Successo', 'Anagrafica aggiunta con successo', 'success');
+      this.showLoadingBar();
+      const url: string = "http://localhost:5678/webhook-test/generate-company";
+  
+      const bodyReq = this.form.get('piva')?.value
+        ? { piva: this.form.get('piva')?.value.toLowerCase() }
+        : this.form.get('cf')?.value
+        ? { cf: this.form.get('cf')?.value.toLowerCase() }
+        : null;
+  
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(bodyReq)
+        });
+  
+        const data = await response.json();
+        console.log("res json", data);
+  
+        if (response.status === 409) {
+          if (data.message?.toLowerCase().includes("già presente")) {
+            this.typeAlert = 'warning';
+            this.showConfirmationDialog('Attenzione', data.message, 'warning');
           } else {
-            this.showConfirmationDialog('Attenzione', 'Anagrafica non trovata', 'warning');
+            this.typeAlert = 'success';
+            this.showConfirmationDialog('Successo', data.message, 'success');
           }
-        } catch (error) {
-          console.error("Fetch error:", error);
-          this.showConfirmationDialog('Errore', 'Si è verificato un errore durante l\'operazione.', 'error');
-        } finally {
-          this.hideLoadingBar()               
-          // dialogRef.close();  Chiude la modale di caricamento
+        } else if ( response.status === 200 ){
+          this.showConfirmationDialog('Successo', data.message, 'success');
         }
+  
+      } catch (error) {
+        console.error("Fetch error:", error);
+        this.typeAlert = 'error';
+        this.showConfirmationDialog('Errore', 'Si è verificato un errore durante l\'operazione.', 'error');
+      } finally {
+        this.hideLoadingBar();
+      }
     }
   }
+  
 
   // openAiFormModal(data: any): void {
   //   const dialogRef = this.dialog.open(AiModalComponent, {

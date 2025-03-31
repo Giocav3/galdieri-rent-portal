@@ -2,11 +2,50 @@
   <div class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
     
     <!-- Titolo -->
-    <div class="mb-6">
-      <h1 class="text-3xl font-semibold tracking-tight">Stakeholders</h1>
-      <p class="text-secondary text-base tracking-tight">
-        Monitora gli stakeholders, cerca e visualizza informazioni
-      </p>
+    <div class="mx-auto flex w-full max-w-screen-xl flex-col">
+      <div
+          class="my-8 flex min-w-0 flex-auto flex-col sm:my-12 sm:flex-row sm:items-center"
+      >
+          <!-- Avatar and name -->
+          <div class="flex min-w-0 flex-auto items-center">
+              <div class="h-16 w-16 flex-0 overflow-hidden rounded-full">
+                  <img
+                      class="h-full w-full object-cover"
+                      src="images/avatars/brian-hughes.jpg"
+                  />
+              </div>
+              <div class="ml-4 flex min-w-0 flex-col">
+                  <ng-container *transloco="let t">
+                      <div
+                          class="truncate text-2xl font-semibold leading-7 tracking-tight md:text-5xl md:leading-snug"
+                      >
+                          Stakeholders
+                      </div>
+                  </ng-container>
+                  <div class="flex items-center">
+                      <mat-icon
+                          class="icon-size-5"
+                          [svgIcon]="'heroicons_solid:bell'"
+                      ></mat-icon>
+                      <div
+                          class="text-secondary ml-1.5 truncate leading-6"
+                      >
+                        Monitora gli stakeholders, cerca e visualizza informazioni
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Actions -->
+          <div class="mt-6 flex items-center space-x-3 sm:ml-2 sm:mt-0">
+              <button mat-flat-button [color]="'primary'" (click)="openDialog()">
+                  <mat-icon
+                      class="icon-size-5"
+                      [svgIcon]="'heroicons_solid:plus'"
+                  ></mat-icon>
+                  <span class="ml-2">Aggiungi Stakeholder</span>
+              </button>
+          </div>
+      </div>
     </div>
 
     <!-- Filtri allineati -->

@@ -44,47 +44,25 @@ export class ChatMockApi {
         }));
     }
 
-    private formatWebhookResponse(response: any): string {
-        const message = response.output?.output.message ? response.output?.output.message : response.output?.message;
+     private formatWebhookResponse(response: any): string {
+        const data = response.output.data;
+        const message = response.output.message;
     
-        // Se ci sono sia message che dati strutturati
-        console.log('dataArrayLenght', response.output?.output?.length);
-        console.log('response', response)
-        if (response.output.output.length > 0) {
-            const formattedSections = response.output.output.map((data, index) => {
-                const companyName = data?.companyName || "Vuoto";
-                const vatCode = data?.vatNumber || "Vuoto";
-                const streetName = data?.address || "Vuoto";
-                const region = data?.region || "Vuoto";
-                const zipCode = data?.cap || "Vuoto";
-                const town = data?.address?.town || "Vuoto";
-                const sdiCode = data?.sdiCode || "Vuoto";
+        // Formatta i dati in un messaggio leggibile
+        const formattedMessage = `
+            ${message}
+            <br><br>
+            <strong>Dettagli Azienda:</strong>
+            <ul>
+                <li><strong>Nome:</strong> ${data.companyDetails.companyName}</li>
+                <li><strong>Partita IVA:</strong> ${data.companyDetails.vatCode}</li>
+                <li><strong>Indirizzo:</strong> ${data.address.streetName}, ${data.address.zipCode} ${data.address.town}</li>
+                <li><strong>ATECO:</strong> ${data.atecoClassification.code} - ${data.atecoClassification.description}</li>
+            </ul>
+        `;
     
-                return `
-                    <strong>Dettagli Azienda ${index + 1}:</strong>
-                    <ul>
-                        <li><strong>Nome:</strong> ${companyName}</li>
-                        <li><strong>Partita IVA:</strong> ${vatCode}</li>
-                        <li><strong>Regione:</strong> ${region}</li>
-                        <li><strong>Indirizzo:</strong> ${streetName}, ${zipCode} ${town}</li>
-                        <li><strong>SDI code:</strong> ${sdiCode}</li>
-                    </ul>
-                `;
-            }).join("<br>");
-    
-            return `
-                ${message}<br><br>
-                ${formattedSections}
-            `;
-        }
-    
-        // Se c'è solo un messaggio (message o naturalResponse), restituisci solo quello
-        if (message) return `${message}`;
-    
-        // Fallback se non c'è nulla
-        return "Nessuna informazione disponibile.";
-    }
-    
+        return formattedMessage;
+    } 
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
@@ -178,7 +156,7 @@ export class ChatMockApi {
                 chat.messages.push(newMessage);
 
                 // Invia il messaggio al webhook di n8n
-                const webhookUrl = 'http://localhost:5678/webhook-test/b7e135f9-5e82-494c-93e9-98cfe2a4b207';
+                const webhookUrl = 'http://localhost:5678/webhook-test/2ed0f06a-91e3-4176-8372-1b74c0a0b598';
                 const payload = {
                     chatId,
                     messageText,
@@ -193,7 +171,7 @@ export class ChatMockApi {
                             id: String(Math.random() + 'ai-id'), // Generate a unique ID
                             chatId: chatId,
                             contactId: chat.contactId, // Assume the AI uses the contact ID of the chat
-                            value: response.output,
+                            value: this.formatWebhookResponse(response),
                             isMine: false,
                             createdAt: new Date(),
                         }; 
