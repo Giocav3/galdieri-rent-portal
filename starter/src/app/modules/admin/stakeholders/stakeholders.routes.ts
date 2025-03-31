@@ -12,7 +12,7 @@ export default [
             breadcrumb: 'Dashboard', // 👈 AGGIUNTO
         },
         resolve: {
-            data: () => inject(StakeholdersService).getStakeholderDashboard(),
+            data: () => inject(StakeholdersService).getStakeholderCountByType(),
         },
     },
     {
@@ -22,7 +22,7 @@ export default [
         //     breadcrumb: 'Crea', // 👈 AGGIUNTO
         // },
         // resolve: {
-        //     data: () => inject(StakeholdersService).getStakeholderDashboard(),
+        //     data: () => inject(StakeholdersService).getStakeholderCountByType(),
         // },
     },
 ] as Routes;
