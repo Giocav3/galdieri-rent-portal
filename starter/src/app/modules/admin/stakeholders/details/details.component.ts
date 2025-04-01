@@ -14,9 +14,10 @@ import {
   import { MatTooltipModule } from '@angular/material/tooltip';
   import { MatDividerModule } from '@angular/material/divider';
   import { StakeholdersService } from '../stakeholders.service';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { MatSnackBar } from '@angular/material/snack-bar';
+  import { MatToolbarModule } from '@angular/material/toolbar';
+  import {MatExpansionModule} from '@angular/material/expansion';
+  import { MatSnackBar } from '@angular/material/snack-bar';
+  import { FormBuilder, FormGroup } from '@angular/forms';
 
 
   
@@ -34,12 +35,88 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   
     private stakeholdersService = inject(StakeholdersService);
     editMode = false
+    personalForm: FormGroup;
     matchedStakeholders = signal<any[]>([]);
     loadingMatches = signal(false);
     readonly panelOpenState = signal(false);
 
-    constructor(private snackBar: MatSnackBar) {}
+    stakeholderTypeMap: Record<string, { color?: 'primary' | 'accent' | 'warn', icon: string, tooltip: string }> = {
+      'Fornitore': {
+        color: 'primary',
+        icon: 'local_shipping',
+        tooltip: 'Fornisce beni o servizi'
+      },
+      'Cliente': {
+        color: 'accent',
+        icon: 'shopping_cart',
+        tooltip: 'Acquista prodotti o servizi'
+      },
+      'Dipendente': {
+        color: 'warn',
+        icon: 'badge',
+        tooltip: 'Fa parte del team'
+      },
+      'Utilizzatore': {
+        color: undefined,
+        icon: 'person',
+        tooltip: 'Usa i nostri servizi'
+      }
+    };
+    personalFormFields = [
+      { key: 'name', label: 'Nome', icon: 'person' },
+      { key: 'surname', label: 'Cognome', icon: 'person' },
+      { key: 'fiscalCode', label: 'Codice fiscale', icon: 'badge' },
+      { key: 'email', label: 'Email', icon: 'email' },
+      { key: 'phone', label: 'Telefono', icon: 'call' },
+      { key: 'gender', label: 'Sesso', icon: 'wc' },
+      { key: 'birthday', label: 'Data di nascita', icon: 'calendar_today', type: 'date' },
+      { key: 'birthPlace', label: 'Luogo di nascita', icon: 'place' },
+      { key: 'birthCounty', label: 'Provincia nascita', icon: 'location_city' },
+      { key: 'title', label: 'Titolo di studio', icon: 'school' },
+      { key: 'address', label: 'Indirizzo', icon: 'home' },
+      { key: 'houseNumber', label: 'Civico', icon: 'pin' },
+      { key: 'cap', label: 'CAP', icon: 'mail' },
+      { key: 'province', label: 'Provincia', icon: 'map' },
+      { key: 'common', label: 'Comune', icon: 'location_city' },
+      { key: 'region', label: 'Regione', icon: 'public' },
+      { key: 'latitude', label: 'Latitudine', icon: 'my_location' },
+      { key: 'longitude', label: 'Longitudine', icon: 'my_location' }
+    ];
+    
 
+    constructor(
+      private snackBar: MatSnackBar,
+      private fb: FormBuilder
+    ) {
+      this.personalForm = this.fb.group({
+        name: [''],
+        surname: [''],
+        fiscalCode: [''],
+        email: [''],
+        phone: [''],
+        gender: [''],
+        birthday: [''],
+        birthPlace: [''],
+        birthCounty: [''],
+        title: [''],
+        address: [''],
+        houseNumber: [''],
+        cap: [''],
+        province: [''],
+        common: [''],
+        region: [''],
+        latitude: [''],
+        longitude: [''],
+      });
+    }
+
+    getStakeholderConfig(type: string) {
+      return this.stakeholderTypeMap[type] || {
+        color: undefined,
+        icon: 'help',
+        tooltip: 'Tipo sconosciuto'
+      };
+    }
 
     ngOnChanges(changes: SimpleChanges): void {
       if (changes['contact'] && this.contact?.stakeholder) {
@@ -50,7 +127,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
     toggleEditMode(value: boolean) {
       this.editMode = value;
+    
+      if (value) {
+        const match = this.matchedStakeholders()[0];
+        if (match?.personalData) {
+          this.personalForm.patchValue(match.personalData);
+        }
+      }
     }
+    
+    savePersonalData() {
+      console.log('📝 Dati anagrafici salvati:', this.personalForm.getRawValue());
+      this.toggleEditMode(false);
+    }
+    
+    
     
   //METODO DI CHIUSURA
     closePanel() {
