@@ -21,8 +21,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; // questo è fondamentale!
+
+import { ContactsDetailsComponent } from '../stakeholders/details/details.component'; // path corretto
+import { ContactsListComponent } from '../anagrafica/list/list.component';
+import { MatDialog } from '@angular/material/dialog';
+import { StakeholderFormComponent } from './stakeHolders-form/stakeholder-form.component';
 import { StakeHolderDetails } from '../stakeholders/details/details.component'; // path corretto
 import { RouterModule } from '@angular/router'
+
 
 @Component({
   selector: 'app-stakeholders',
@@ -69,7 +75,9 @@ export class StakeholdersComponent implements OnInit, OnDestroy {
   showDetails: boolean = false;
   constructor(
     private _stakeholdersService: StakeholdersService,
-    private route: ActivatedRoute
+    private _router: Router,
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -137,6 +145,16 @@ export class StakeholdersComponent implements OnInit, OnDestroy {
       this.selectedStakeholder = null;
     }, 300); // Tempo per chiudere animazione
   }
-  
+
+
+  openDialog(): void {
+    this.dialog.open(StakeholderFormComponent, {
+      width: '900px', // oppure '80vw' per percentuali
+      maxHeight: '90vh', // limita altezza massima
+      disableClose: false, // opzionale: blocca chiusura cliccando fuori
+      autoFocus: true,   // opzionale: utile se usi stepper
+    });
+  }
+
 
 }
