@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Apollo } from 'apollo-angular';
-import { STAKEHOLDER_COUNT_BY_TYPE } from './graphql/stakeholders.queries';
+import { GET_STAKEHOLDER_BY_ID, STAKEHOLDER_COUNT_BY_TYPE } from './graphql/stakeholders.queries';
 import { GET_STAKEHOLDERS_BY_TYPE } from './graphql/stakeholders.queries';
 import { GET_STAKEHOLDERS_WHITH_SHARED_TAXIDENTIFIER } from './graphql/stakeholders.queries';
 import { SEARCH_STAKEHOLDERS } from './graphql/stakeholders.queries';
@@ -111,6 +111,16 @@ private _data: BehaviorSubject<any> = new BehaviorSubject(null);
           console.log("ottimo")
           return 
       }
+  getStakeholderById(id: string): Observable<any> {
+    return this.apollo
+      .query<any>({
+        query: GET_STAKEHOLDER_BY_ID,
+        variables: { stakeholderId:id },
+        fetchPolicy: 'network-only'
+      })
+      .pipe(map(result => result.data.stakeholder));
+  }
+      
   
   
 }

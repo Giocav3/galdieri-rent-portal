@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 
+import { BarplotComponent } from 'app/modules/widget/barplot/barplot.component';
+import { CardComponent } from 'app/modules/widget/card/card.component';
+
 @Component({
   selector: 'app-dashboard',
   imports: [
@@ -21,7 +24,9 @@ import { CommonModule } from '@angular/common';
     MatButtonToggleModule,
     NgApexchartsModule,
     MatTabsModule,
-    CommonModule
+    CommonModule,
+    BarplotComponent,
+    CardComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -34,6 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   chartSuppliers: ApexOptions;
   selectedProject: string = 'ACME Corp. Backend App';
   data: any;
+  total: any;
   private _unsubscribeAll: Subject<any> = new Subject<any>();
   
   constructor(private _dashboardService: DashboardService,  private _router: Router){
@@ -49,10 +55,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // }
 
   filterStakeholderByType(type: string): void {
+    console.log("ottimo")
     this._router.navigate(['/stakeholders'], {
       queryParams: { type }
     });
   }
+
+  filterStakeholderByType1(query: string): void {
+    console.log("ottimo")
+    this._router.navigate(['/stakeholders'], {
+      queryParams: { query }
+    });
+  }
+
+  
 
   ngOnInit(): void {
     this._dashboardService.data$
@@ -60,6 +76,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
             .subscribe((data) => {
                 // Store the data
                 this.data = data;
+                this.total = data.total
                 console.log(data)
                 // Prepare the chart data
                 //this._prepareChartData();
