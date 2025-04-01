@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 export class CardComponent {
 
   @Input() data: any[] = [];
+  @Input() total: any;
 
   @Output() cardClick = new EventEmitter<string>(); // ✅ evento verso il padre
 
