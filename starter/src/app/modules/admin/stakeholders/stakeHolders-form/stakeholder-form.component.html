@@ -1,0 +1,450 @@
+<form [formGroup]="form">
+  <mat-vertical-stepper [linear]="true" #stepper class="full-labels">
+    <!-- STEP 1: TIPO STAKEHOLDER -->
+    <mat-step [formGroupName]="'step1'" [stepControl]="form.get('step1.stakeholderType')" #step1>
+      <ng-template matStepLabel>
+        <span class="font-medium">Tipo di Stakeholder</span>
+      </ng-template>
+
+      <p class="my-6 font-medium">
+        Seleziona il tipo di stakeholder che vuoi registrare
+      </p>
+
+      <div class="flex">
+        <mat-form-field class="flex-auto">
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="stakeholderType">
+            <mat-option *ngFor="let type of stakeholderTypes" [value]="type">
+              <mat-icon class="option-icon">group</mat-icon> {{ type }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix>category</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          class="px-8"
+          mat-flat-button
+          color="primary"
+          [disabled]="form.get('step1.stakeholderType')?.invalid"
+          matStepperNext
+        >
+          Avanti
+        </button>
+      </div>
+    </mat-step>
+
+    <!-- STEP 2: TIPOLOGIA GIURIDICA -->
+    <mat-step [formGroupName]="'step2'" [stepControl]="form.get('step2.type')" #step2>
+      <ng-template matStepLabel>
+        <span class="font-medium">Tipologia Giuridica</span>
+      </ng-template>
+
+      <p class="my-6 font-medium">
+        Specifica la tipologia giuridica dello stakeholder
+      </p>
+
+      <div class="flex">
+        <mat-form-field class="flex-auto">
+          <mat-label>Tipologia</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let persona of personaTypes" [value]="persona">
+              <mat-icon class="option-icon">person</mat-icon> {{ persona }}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix>work</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          class="mr-2 px-8"
+          mat-flat-button
+          color="accent"
+          matStepperPrevious
+        >
+          Indietro
+        </button>
+        <button
+          class="px-8"
+          mat-flat-button
+          color="primary"
+          [disabled]="form.get('step2.type')?.invalid"
+          matStepperNext
+        >
+          Avanti
+        </button>
+      </div>
+    </mat-step>
+
+    <!-- STEP 3: DATI ANAGRAFICI -->
+    <mat-step [formGroupName]="'step3'" [stepControl]="form.get('step3')" #step3>
+      <ng-template matStepLabel>
+        <span class="font-medium">Dati Anagrafici</span>
+      </ng-template>
+
+      <p class="my-6 font-medium">
+        Inserisci i dati anagrafici dello stakeholder
+      </p>
+
+      <div class="flex">
+        <mat-form-field class="flex-auto">
+          <mat-label>Codice Fiscale</mat-label>
+          <input matInput formControlName="fiscalCode" (blur)="onFiscalCodeBlur()"
+          />
+          <mat-icon matPrefix>badge</mat-icon>
+          <mat-spinner *ngIf="isCheckingFiscalCode" matSuffix diameter="24"></mat-spinner>
+          <!-- <mat-error *ngIf="form.get('step3.fiscalCode')?.hasError('fiscalCodeExists')">
+            {{ form.get('step3.fiscalCode')?.getError('fiscalCodeExists') }}
+          </mat-error>
+          <mat-error *ngIf="form.get('step3.fiscalCode')?.hasError('serverError')">
+            {{ form.get('step3.fiscalCode')?.getError('serverError') }}
+          </mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div class="flex flex-col" *ngIf="showPersonalDataDetails">
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" />
+            <mat-icon matPrefix>person</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Cognome</mat-label>
+            <input matInput formControlName="surname" />
+            <mat-icon matPrefix>person_outline</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="flex">
+          <mat-form-field class="flex-auto">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-icon matPrefix>email</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Telefono</mat-label>
+            <input matInput formControlName="phone" />
+            <mat-icon matPrefix>call</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Genere</mat-label>
+            <input matInput formControlName="gender" />
+            <mat-icon matPrefix>wc</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="flex">
+          <mat-form-field class="flex-auto">
+            <mat-label>Data di Nascita</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthday">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-icon matPrefix>calendar_today</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Luogo di Nascita</mat-label>
+            <input matInput formControlName="birthPlace" />
+            <mat-icon matPrefix>place</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Indirizzo</mat-label>
+            <input matInput formControlName="address" />
+            <mat-icon matPrefix>place</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          class="mr-2 px-8"
+          mat-flat-button
+          color="accent"
+          matStepperPrevious
+        >
+          Indietro
+        </button>
+        <button
+          class="px-8"
+          mat-flat-button
+          color="primary"
+          matStepperNext
+        >
+          Avanti
+        </button>
+      </div>
+    </mat-step>
+
+    <!-- STEP 4: DATI AZIENDALI -->
+    <mat-step [formGroupName]="'step4'" *ngIf="!isPersonaFisica()" [stepControl]="form.get('step4')" #step4>
+      <ng-template matStepLabel>
+        <span class="font-medium">Dati Aziendali</span>
+      </ng-template>
+
+      <p class="my-6 font-medium">
+        Inserisci i dati aziendali dello stakeholder
+      </p>
+
+      <div class="flex">
+        <mat-form-field class="flex-auto">
+          <mat-label>Partita IVA</mat-label>
+          <input matInput formControlName="vatNumber" (blur)="onVatNumberBlur()" />
+          <mat-icon matPrefix>badge</mat-icon>
+
+          <mat-error *ngIf="form.get('step3.fiscalCode')?.hasError('fiscalCodeExists')">
+            {{ form.get('step3.fiscalCode')?.getError('fiscalCodeExists') }}
+          </mat-error>
+          <mat-error *ngIf="form.get('step3.fiscalCode')?.hasError('serverError')">
+            {{ form.get('step3.fiscalCode')?.getError('serverError') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="flex flex-col" *ngIf="showCompanyDataDetails">
+        <div class="flex">
+          <mat-form-field class="flex-auto">
+            <mat-label>Ragione Sociale</mat-label>
+            <input matInput formControlName="companyName" />
+            <mat-icon matPrefix>apartment</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+            <mat-icon matPrefix>email</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Telefono</mat-label>
+            <input matInput formControlName="phone" />
+            <mat-icon matPrefix>call</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Regione</mat-label>
+            <input matInput formControlName="region" />
+            <mat-icon matPrefix>public</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Provincia</mat-label>
+            <input matInput formControlName="province" />
+            <mat-icon matPrefix>location_city</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>Comune</mat-label>
+            <input matInput formControlName="common" />
+            <mat-icon matPrefix>location_on</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>CAP</mat-label>
+            <input matInput formControlName="cap" />
+            <mat-icon matPrefix>pin_drop</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>N. Civico</mat-label>
+            <input matInput formControlName="houseNumber" />
+            <mat-icon matPrefix>home</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Indirizzo</mat-label>
+            <input matInput formControlName="address" />
+            <mat-icon matPrefix>directions</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="gt-xs:flex-row flex flex-col">
+          <mat-form-field class="gt-xs:pr-3 flex-auto">
+            <mat-label>PEC</mat-label>
+            <input matInput formControlName="pec" />
+            <mat-icon matPrefix>mark_email_read</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="gt-xs:pl-3 flex-auto">
+            <mat-label>Codice SDI</mat-label>
+            <input matInput formControlName="sdiCode" />
+            <mat-icon matPrefix>dns</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          class="mr-2 px-8"
+          mat-flat-button
+          color="accent"
+          matStepperPrevious
+        >
+          Indietro
+        </button>
+        <button
+          class="px-8"
+          mat-flat-button
+          color="primary"
+          matStepperNext
+        >
+          Avanti
+        </button>
+      </div>
+    </mat-step>
+
+    <!-- STEP 5: DETTAGLI SPECIFICI -->
+    <mat-step [formGroupName]="'step5'" [stepControl]="form.get('step5')" #step5>
+      <ng-template matStepLabel>
+        <span class="font-medium">Dettagli Specifici</span>
+      </ng-template>
+
+      <p class="my-6 font-medium">
+        Completa con i dettagli specifici per questo tipo di stakeholder
+      </p>
+
+      <div class="flex flex-col" [ngSwitch]="form.get('step1.stakeholderType')?.value" >
+        <ng-container *ngSwitchCase="'Cliente'">
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>IBAN</mat-label>
+              <input matInput formControlName="iban">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Codice Cliente</mat-label>
+              <input matInput formControlName="clientCode">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Origine</mat-label>
+              <input matInput formControlName="origin">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Settore</mat-label>
+              <input matInput formControlName="businessSector">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Tipo Cliente</mat-label>
+              <input matInput formControlName="clientType">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Accordo</mat-label>
+              <input matInput formControlName="agreement">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Consulente Associato</mat-label>
+              <input matInput formControlName="associatedConsultant">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Documenti</mat-label>
+              <input matInput formControlName="documents">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Codice SDI</mat-label>
+              <input matInput formControlName="sdiCode">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Pratiche</mat-label>
+              <input matInput formControlName="practices">
+            </mat-form-field>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Fornitore'">
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Metodo di Pagamento</mat-label>
+              <input matInput formControlName="paymentMethod">
+            </mat-form-field>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Dipendente'">
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Ruolo</mat-label>
+              <input matInput formControlName="role">
+            </mat-form-field>
+          </div>
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Stakeholder di riferimento</mat-label>
+              <input matInput formControlName="reference">
+            </mat-form-field>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Utilizzatore'">
+          <div class="flex">
+            <mat-form-field class="flex-auto">
+              <mat-label>Stakeholder di riferimento</mat-label>
+              <input matInput formControlName="reference">
+            </mat-form-field>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <!-- Pulsante Resetta (sempre a sinistra) -->
+        <button
+            class="w-full sm:w-auto order-1 sm:order-none px-8 py-2"
+            mat-flat-button
+            color="warn"
+            (click)="resetForm()"
+        >
+            Resetta tutto
+        </button>
+    
+        <!-- Container pulsanti Avanti/Indietro (allineati a destra) -->
+        <div class="flex flex-row w-full sm:w-auto justify-end gap-2 order-2 sm:order-none">
+            <!-- Pulsante Indietro -->
+            <button
+                class="w-1/2 sm:w-auto px-4 sm:px-8 py-2"
+                mat-flat-button
+                color="accent"
+                matStepperPrevious
+            >
+                Indietro
+            </button>
+            
+            <!-- Pulsante Salva -->
+            <button
+                class="w-1/2 sm:w-auto px-4 sm:px-8 py-2"
+                mat-flat-button
+                color="primary"
+                (click)="onSubmit()"
+            >
+                Salva
+            </button>
+        </div>
+    </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>

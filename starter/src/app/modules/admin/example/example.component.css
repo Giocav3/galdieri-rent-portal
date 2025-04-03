@@ -1,0 +1,106 @@
+.toolbar {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+    .custom-chip-list {
+        display: flex;
+        gap: 8px;
+
+        mat-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            background: white;
+            color: black;
+            transition: background 0.3s;
+    
+            .icon {
+                font-size: 18px;
+            }
+
+            &:hover {
+                background: #e0e0e0;
+            }
+
+            &.active {
+                background: #000;
+                color: #fff;
+                border: 1px solid #000;
+            }
+
+            .count {
+                background: rgba(0, 0, 0, 0.1);
+                color: inherit;
+                padding: 2px 8px;
+                border-radius: 12px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            &.active .count {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+
+    .divider {
+        height: 24px;
+        width: 2px;
+        background: #ddd;
+        margin: 0 16px;
+    }
+
+    .custom-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 500;
+        background: white;
+        color: black;
+        transition: background 0.3s;
+
+        &:hover {
+            background: #f0f0f0;
+        }
+
+        .icon {
+            font-size: 18px;
+        }
+    }
+
+    .icon-button-group {
+        display: flex;
+        gap: 4px;
+        margin-left: 8px;
+
+        .custom-icon-button {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            transition: background 0.3s;
+
+            &:hover {
+                background: #f0f0f0;
+            }
+
+            mat-icon {
+                font-size: 20px;
+                color: black;
+            }
+        }
+    }
+}

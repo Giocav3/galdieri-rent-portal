@@ -2,12 +2,33 @@
 import { FuseNavigationItem } from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
+    // {
+    //     id   : 'example',
+    //     title: 'Example',
+    //     type : 'basic',
+    //     icon : 'heroicons_outline:chart-pie',
+    //     link : '/example'
+    // },
+    // {
+    //     id   : 'anagrafica',
+    //     title: 'Anagrafica',
+    //     type : 'basic',
+    //     icon : 'heroicons_outline:chart-pie',
+    //     link : '/anagrafica'
+    // },
     {
-        id   : 'example',
-        title: 'Example',
+        id   : 'dashboard',
+        title: 'Dashboard',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/dashboard'
+    },
+    {
+        id   : 'stakeholders',
+        title: 'Stakeholders',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/stakeholders'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -17,6 +38,27 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
+    },
+    {
+        id   : 'stakeholders',
+        title: 'Stakeholders',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/stakeholders'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -26,6 +68,27 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
+    },
+    {
+        id   : 'stakeholders',
+        title: 'Stakeholders',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/stakeholders'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -35,5 +98,26 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
+    },
+    {
+        id   : 'anagrafica',
+        title: 'Anagrafica',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/anagrafica'
+    },
+    {
+        id   : 'dashboard',
+        title: 'Dashboard',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/dashboard'
+    },
+    {
+        id   : 'stakeholders',
+        title: 'Stakeholders',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/stakeholders'
     }
 ];

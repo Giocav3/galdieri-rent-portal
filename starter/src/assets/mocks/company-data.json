@@ -1,0 +1,1902 @@
+[
+    {
+      "_id": {
+        "$oid": "59c3b4366eb7c3fb325c3920"
+      },
+      "companyName": "Micheletti-Paoletti Group",
+      "vatNumber": "IT43962611630",
+      "phone": "+39 69 3927147",
+      "email": "dionigi32@mazzocchi.net",
+      "region": "Basilicata",
+      "province": "CB",
+      "common": "Sesto Pomponio del friuli",
+      "cap": "60341",
+      "houseNumber": "67",
+      "address": "Piazza Sbarbaro",
+      "latitude": -58.138024,
+      "longitude": -10.033265,
+      "pec": "kmolesini@abate.com",
+      "sdiCode": "mAY8318"
+    },
+    {
+      "_id": {
+        "$oid": "fc29a96a22fbb34b42e2d4b7"
+      },
+      "companyName": "Alighieri, Petrucci e Blasi e figli",
+      "vatNumber": "IT74423495483",
+      "phone": "+39 0696 8702190",
+      "email": "gemmacastelli@manacorda.it",
+      "region": "Piemonte",
+      "province": "BA",
+      "common": "Parini nell'emilia",
+      "cap": "47954",
+      "houseNumber": "467",
+      "address": "Borgo Cabibbo",
+      "latitude": 6.557524,
+      "longitude": -129.513434,
+      "pec": "lunasusanna@tiscali.it",
+      "sdiCode": "VBt4103"
+    },
+    {
+      "_id": {
+        "$oid": "bc12a8b6889bec9426d654cf"
+      },
+      "companyName": "Crispi e figli",
+      "vatNumber": "IT76572106488",
+      "phone": "+39 598 57599925",
+      "email": "toninorinaldi@bellocchio.it",
+      "region": "Puglia",
+      "province": "VR",
+      "common": "Sesto Berenice",
+      "cap": "44722",
+      "houseNumber": "355",
+      "address": "Viale Vanessa",
+      "latitude": -42.585136,
+      "longitude": -139.28508,
+      "pec": "melania14@fantozzi.net",
+      "sdiCode": "WBs2923"
+    },
+    {
+      "_id": {
+        "$oid": "5cbc7aea12e7800caab81f67"
+      },
+      "companyName": "Sagese-Miniati Group",
+      "vatNumber": "IT31344731381",
+      "phone": "+39 617 35 23 1331",
+      "email": "zichichipiermaria@cristoforetti.eu",
+      "region": "Lazio",
+      "province": "MS",
+      "common": "Busoni del friuli",
+      "cap": "59684",
+      "houseNumber": "8",
+      "address": "Rotonda Comolli",
+      "latitude": 64.170012,
+      "longitude": 141.47642,
+      "pec": "adele13@gmail.com",
+      "sdiCode": "cTL4826"
+    },
+    {
+      "_id": {
+        "$oid": "be19361158e834e97b180891"
+      },
+      "companyName": "Valmarana Group",
+      "vatNumber": "IT72120671121",
+      "phone": "+39 9984 08144497",
+      "email": "vcimini@tasca.com",
+      "region": "Sardegna",
+      "province": "SP",
+      "common": "Borgo Ciro veneto",
+      "cap": "02070",
+      "houseNumber": "63",
+      "address": "Rotonda Ludovica",
+      "latitude": -62.913184,
+      "longitude": 128.471398,
+      "pec": "raffaelloeco@staglieno.net",
+      "sdiCode": "zlp6010"
+    },
+    {
+      "_id": {
+        "$oid": "c19a3188a4cc9fd158d4baaf"
+      },
+      "companyName": "Petrassi-Gozzano s.r.l.",
+      "vatNumber": "IT13587958536",
+      "phone": "+39 922 24857020",
+      "email": "claudia82@zacchia.it",
+      "region": "Molise",
+      "province": "TA",
+      "common": "Gino veneto",
+      "cap": "65911",
+      "houseNumber": "559",
+      "address": "Strada Cassandra",
+      "latitude": -63.236802,
+      "longitude": 26.018349,
+      "pec": "xmortati@gibilisco-viola.net",
+      "sdiCode": "Nrg2094"
+    },
+    {
+      "_id": {
+        "$oid": "d3aafd007d437de9336616f4"
+      },
+      "companyName": "Carnera-Carli SPA",
+      "vatNumber": "IT52557782563",
+      "phone": "+39 824 3618064",
+      "email": "riccigiuseppe@ziani.com",
+      "region": "Veneto",
+      "province": "CL",
+      "common": "Settimo Ottone ligure",
+      "cap": "40956",
+      "houseNumber": "37",
+      "address": "Piazza Costantino",
+      "latitude": -54.039681,
+      "longitude": 172.84857,
+      "pec": "vcicala@libero.it",
+      "sdiCode": "dUV1310"
+    },
+    {
+      "_id": {
+        "$oid": "434fdd4995fad7b73eb5d387"
+      },
+      "companyName": "Interminelli e figli",
+      "vatNumber": "IT70936860772",
+      "phone": "+39 60 22685476",
+      "email": "battellirosa@parini.it",
+      "region": "Friuli Venezia Giulia",
+      "province": "LC",
+      "common": "Federici salentino",
+      "cap": "90515",
+      "houseNumber": "46",
+      "address": "Contrada Callegari",
+      "latitude": -13.611996,
+      "longitude": 2.160176,
+      "pec": "maurafracci@salvini-scalera.it",
+      "sdiCode": "JSy5677"
+    },
+    {
+      "_id": {
+        "$oid": "c1c3425b86a299eab7248924"
+      },
+      "companyName": "Orlando, Sbarbaro e Faggiani s.r.l.",
+      "vatNumber": "IT33043255472",
+      "phone": "+39 46 9835814",
+      "email": "cgolino@bello.net",
+      "region": "Basilicata",
+      "province": "BT",
+      "common": "Bramante ligure",
+      "cap": "10230",
+      "houseNumber": "896",
+      "address": "Vicolo Eleanora",
+      "latitude": -50.678859,
+      "longitude": -162.759953,
+      "pec": "salvatorecorbo@libero.it",
+      "sdiCode": "cDO2600"
+    },
+    {
+      "_id": {
+        "$oid": "ead7259baf46d336b2588ddf"
+      },
+      "companyName": "Brichese-Norbiato SPA",
+      "vatNumber": "IT59634424512",
+      "phone": "+39 9801 32644257",
+      "email": "pucciocuda@paoletti.it",
+      "region": "Lombardia",
+      "province": "SA",
+      "common": "Settimo Manuel",
+      "cap": "79184",
+      "houseNumber": "9",
+      "address": "Viale Asmundo",
+      "latitude": -72.388415,
+      "longitude": 101.504959,
+      "pec": "elmo54@ferragamo.it",
+      "sdiCode": "djC2877"
+    },
+    {
+      "_id": {
+        "$oid": "f6dbfa86f7718edec0db0db4"
+      },
+      "companyName": "Marconi-Toselli s.r.l.",
+      "vatNumber": "IT99273806034",
+      "phone": "+39 26 88170563",
+      "email": "epassalacqua@ammaniti.org",
+      "region": "Trentino-Alto Adige",
+      "province": "PD",
+      "common": "Settimo Rita",
+      "cap": "76447",
+      "houseNumber": "51",
+      "address": "Stretto Baglioni",
+      "latitude": -30.637007,
+      "longitude": -23.247212,
+      "pec": "cleliafilippini@yahoo.com",
+      "sdiCode": "aLs0981"
+    },
+    {
+      "_id": {
+        "$oid": "70a6a6ad5653c834d2022986"
+      },
+      "companyName": "Battelli-Morellato e figli",
+      "vatNumber": "IT25705602376",
+      "phone": "+39 06 20299833",
+      "email": "strincavelli@muratori-nitto.it",
+      "region": "Puglia",
+      "province": "NA",
+      "common": "Settimo Gabriele",
+      "cap": "87047",
+      "houseNumber": "733",
+      "address": "Rotonda Tamborini",
+      "latitude": 82.645304,
+      "longitude": -58.852936,
+      "pec": "carolinarenzi@gentileschi.org",
+      "sdiCode": "JNr7631"
+    },
+    {
+      "_id": {
+        "$oid": "4193b7438d2dabb407c9ca45"
+      },
+      "companyName": "Lussu-Montessori e figli",
+      "vatNumber": "IT51405044067",
+      "phone": "+39 50 5261160",
+      "email": "atebaldi@emanuelli-gremese.it",
+      "region": "Abruzzo",
+      "province": "AO",
+      "common": "Borgo Bruno laziale",
+      "cap": "45053",
+      "houseNumber": "61",
+      "address": "Strada Contarini",
+      "latitude": 11.4814,
+      "longitude": -25.220574,
+      "pec": "rromagnoli@cremonesi-fanucci.it",
+      "sdiCode": "XvT1742"
+    },
+    {
+      "_id": {
+        "$oid": "f59045cffc9e9aa59092bb8b"
+      },
+      "companyName": "Sauli-Condoleo Group",
+      "vatNumber": "IT87840749347",
+      "phone": "+39 157 09 62 8860",
+      "email": "galassogolino@meucci.it",
+      "region": "Puglia",
+      "province": "CH",
+      "common": "Borgo Maurizio nell'emilia",
+      "cap": "86814",
+      "houseNumber": "885",
+      "address": "Rotonda Luciana",
+      "latitude": -57.830366,
+      "longitude": -119.687594,
+      "pec": "ivopraga@nolcini-sommaruga.it",
+      "sdiCode": "vOV0160"
+    },
+    {
+      "_id": {
+        "$oid": "23d652347ffb1812b1e1e306"
+      },
+      "companyName": "Savorgnan-Morucci SPA",
+      "vatNumber": "IT00626049545",
+      "phone": "+39 988 58 49 9200",
+      "email": "giuseppe07@seddio.it",
+      "region": "Molise",
+      "province": "FG",
+      "common": "Quarto Tonino",
+      "cap": "88439",
+      "houseNumber": "64",
+      "address": "Piazza Roccabonella",
+      "latitude": -35.783902,
+      "longitude": -67.276894,
+      "pec": "coriolanogaliazzo@libero.it",
+      "sdiCode": "YUc6426"
+    },
+    {
+      "_id": {
+        "$oid": "9e331d80cde82f289ee16da6"
+      },
+      "companyName": "Marzorati s.r.l.",
+      "vatNumber": "IT20167458807",
+      "phone": "+39 9462 89273514",
+      "email": "federigo19@bazzi.eu",
+      "region": "Basilicata",
+      "province": "AL",
+      "common": "Sesto Vittoria umbro",
+      "cap": "78996",
+      "houseNumber": "06",
+      "address": "Canale Nicoletta",
+      "latitude": -36.057212,
+      "longitude": -50.576231,
+      "pec": "giuntilina@fastwebnet.it",
+      "sdiCode": "ulM6918"
+    },
+    {
+      "_id": {
+        "$oid": "764ae7a751a65bf91cc4554f"
+      },
+      "companyName": "Fagotto s.r.l.",
+      "vatNumber": "IT10090221038",
+      "phone": "+39 45 32802132",
+      "email": "zsforza@bettoni-bragaglia.net",
+      "region": "Campania",
+      "province": "LT",
+      "common": "Giampaolo laziale",
+      "cap": "57503",
+      "houseNumber": "742",
+      "address": "Viale Michelotto",
+      "latitude": 74.052246,
+      "longitude": -121.351301,
+      "pec": "ciancioloagostino@carli-bresciani.it",
+      "sdiCode": "ytb2515"
+    },
+    {
+      "_id": {
+        "$oid": "4d9322b385ca09cb31d9438e"
+      },
+      "companyName": "Valier-Ceschi s.r.l.",
+      "vatNumber": "IT50333695039",
+      "phone": "+39 103 1672580",
+      "email": "filippogiannotti@viviani-baresi.eu",
+      "region": "Calabria",
+      "province": "MN",
+      "common": "Telemaco a mare",
+      "cap": "21840",
+      "houseNumber": "13",
+      "address": "Piazza Hugo",
+      "latitude": -38.750074,
+      "longitude": -153.152816,
+      "pec": "grecomonteverdi@alice.it",
+      "sdiCode": "eUY5720"
+    },
+    {
+      "_id": {
+        "$oid": "ad95d83f65ecb52d111737f6"
+      },
+      "companyName": "Bartoli s.r.l.",
+      "vatNumber": "IT19930609347",
+      "phone": "+39 9570 87397894",
+      "email": "xbottaro@redi-agnesi.net",
+      "region": "Trentino-Alto Adige",
+      "province": "CB",
+      "common": "Marisa a mare",
+      "cap": "26943",
+      "houseNumber": "634",
+      "address": "Viale Gloria",
+      "latitude": -18.370042,
+      "longitude": -168.364454,
+      "pec": "rosa10@pagliaro.it",
+      "sdiCode": "Rbu9886"
+    },
+    {
+      "_id": {
+        "$oid": "09c6a24f3fd2c112261e969c"
+      },
+      "companyName": "Sokolov, Gucci e Bataglia s.r.l.",
+      "vatNumber": "IT58942343749",
+      "phone": "+39 0343 4758409",
+      "email": "palazzomattia@malacarne.com",
+      "region": "Trentino-Alto Adige",
+      "province": "SR",
+      "common": "Quarto Fulvio ligure",
+      "cap": "45561",
+      "houseNumber": "9",
+      "address": "Piazza Ioppi",
+      "latitude": -5.341782,
+      "longitude": -115.694273,
+      "pec": "ajellomattia@tin.it",
+      "sdiCode": "OJG5878"
+    },
+    {
+      "_id": {
+        "$oid": "2bc86c2c09159fe39d548915"
+      },
+      "companyName": "Cesarotti, Guarana e Foletti SPA",
+      "vatNumber": "IT66828234002",
+      "phone": "+39 8269 39843229",
+      "email": "osonnino@camuccini.it",
+      "region": "Liguria",
+      "province": "TE",
+      "common": "Sesto Rolando lido",
+      "cap": "70628",
+      "houseNumber": "871",
+      "address": "Stretto Giuliano",
+      "latitude": 27.971654,
+      "longitude": 28.472668,
+      "pec": "mbonomo@campise-conti.it",
+      "sdiCode": "CJK2443"
+    },
+    {
+      "_id": {
+        "$oid": "8de26a206bde074e074d4960"
+      },
+      "companyName": "Platini, Cagnin e Brunelleschi SPA",
+      "vatNumber": "IT22377732607",
+      "phone": "+39 68 0968062",
+      "email": "lcontarini@sbarbaro.eu",
+      "region": "Umbria",
+      "province": "MS",
+      "common": "Olga laziale",
+      "cap": "77339",
+      "houseNumber": "2",
+      "address": "Canale Rossellini",
+      "latitude": -49.255268,
+      "longitude": 110.196583,
+      "pec": "coriolano20@avogadro-montessori.it",
+      "sdiCode": "REO4352"
+    },
+    {
+      "_id": {
+        "$oid": "513177a4bf9f04d8eeab1542"
+      },
+      "companyName": "Gatto, Tasso e Pacelli s.r.l.",
+      "vatNumber": "IT16913598044",
+      "phone": "+39 4026 41800180",
+      "email": "spadaforanino@curiel.com",
+      "region": "Friuli Venezia Giulia",
+      "province": "AG",
+      "common": "San Massimiliano",
+      "cap": "11774",
+      "houseNumber": "634",
+      "address": "Viale Bova",
+      "latitude": -46.412668,
+      "longitude": -96.045831,
+      "pec": "enonis@libero.it",
+      "sdiCode": "jhK9675"
+    },
+    {
+      "_id": {
+        "$oid": "456c6d1bff84363ef53dcdbf"
+      },
+      "companyName": "Schiavo-Paganini e figli",
+      "vatNumber": "IT81573524860",
+      "phone": "+39 932 8521083",
+      "email": "stefaniaamaldi@perozzo-battelli.it",
+      "region": "Emilia-Romagna",
+      "province": "AL",
+      "common": "Cagnin ligure",
+      "cap": "68639",
+      "houseNumber": "9",
+      "address": "Stretto Erika",
+      "latitude": 36.778232,
+      "longitude": 177.46737,
+      "pec": "orestecortese@anguillara-toscanini.it",
+      "sdiCode": "ikf8971"
+    },
+    {
+      "_id": {
+        "$oid": "8010608d27c7d8663c4bcca2"
+      },
+      "companyName": "Calbo SPA",
+      "vatNumber": "IT30436345501",
+      "phone": "+39 832 87506901",
+      "email": "guccifabrizio@piovani.it",
+      "region": "Piemonte",
+      "province": "PT",
+      "common": "Settimo Ludovico a mare",
+      "cap": "12570",
+      "houseNumber": "4",
+      "address": "Stretto Piero",
+      "latitude": 60.737969,
+      "longitude": 110.568237,
+      "pec": "sbacosi@grossi.it",
+      "sdiCode": "lnY0162"
+    },
+    {
+      "_id": {
+        "$oid": "8c1e304e2a211fcfd7f488d0"
+      },
+      "companyName": "Zabarella s.r.l.",
+      "vatNumber": "IT76350364780",
+      "phone": "+39 353 76 83 0617",
+      "email": "riccardosoffici@sandi-guarato.it",
+      "region": "Molise",
+      "province": "RC",
+      "common": "Eva del friuli",
+      "cap": "41743",
+      "houseNumber": "6",
+      "address": "Rotonda Scandone",
+      "latitude": -31.100496,
+      "longitude": -40.899782,
+      "pec": "graziano95@gmail.com",
+      "sdiCode": "Qlk6853"
+    },
+    {
+      "_id": {
+        "$oid": "4ee62d9eee1f6e4a5c8068cb"
+      },
+      "companyName": "Saraceno-Guarneri Group",
+      "vatNumber": "IT04737437047",
+      "phone": "+39 0053 7765896",
+      "email": "adeletencalla@polesel-calgari.it",
+      "region": "Lombardia",
+      "province": "CA",
+      "common": "Aria umbro",
+      "cap": "84458",
+      "houseNumber": "29",
+      "address": "Borgo Piergiorgio",
+      "latitude": 16.406192,
+      "longitude": 134.134673,
+      "pec": "tolentinovincenzo@pisacane.it",
+      "sdiCode": "ROM2494"
+    },
+    {
+      "_id": {
+        "$oid": "030877a2ef8452d9adea028b"
+      },
+      "companyName": "Navarria, Tassoni e Collina e figli",
+      "vatNumber": "IT53309456509",
+      "phone": "+39 8536 71693705",
+      "email": "adrianogangemi@leonetti.it",
+      "region": "Liguria",
+      "province": "CO",
+      "common": "Mercantini lido",
+      "cap": "31830",
+      "houseNumber": "0",
+      "address": "Via Melina",
+      "latitude": -87.125596,
+      "longitude": -94.25856,
+      "pec": "fabrizia58@libero.it",
+      "sdiCode": "ruQ2029"
+    },
+    {
+      "_id": {
+        "$oid": "2852d083b845e97515e0ba7c"
+      },
+      "companyName": "Morrocco, Montesano e Bruscantini s.r.l.",
+      "vatNumber": "IT89778371258",
+      "phone": "+39 708 31 14 2608",
+      "email": "casalodiantonello@vergassola.com",
+      "region": "Veneto",
+      "province": "SO",
+      "common": "Alfio laziale",
+      "cap": "02778",
+      "houseNumber": "57",
+      "address": "Piazza Leblanc",
+      "latitude": 71.553389,
+      "longitude": 45.150454,
+      "pec": "sfavata@metella.com",
+      "sdiCode": "WCL7793"
+    },
+    {
+      "_id": {
+        "$oid": "a8949dd5b955ee4c91e30e88"
+      },
+      "companyName": "Branciforte-Orsini e figli",
+      "vatNumber": "IT91895368213",
+      "phone": "+39 84 61725736",
+      "email": "scarponigiampaolo@naccari-vergassola.eu",
+      "region": "Campania",
+      "province": "PG",
+      "common": "Borgo Venancio",
+      "cap": "52566",
+      "houseNumber": "572",
+      "address": "Piazza Fortunata",
+      "latitude": -40.515738,
+      "longitude": -49.856898,
+      "pec": "monicagiannetti@maderna-iacovelli.com",
+      "sdiCode": "KqW7819"
+    },
+    {
+      "_id": {
+        "$oid": "5022bb00f4add6b496c9bc95"
+      },
+      "companyName": "Gargallo-Goldstein e figli",
+      "vatNumber": "IT36337726810",
+      "phone": "+39 969 19444981",
+      "email": "marinettifausto@pezzali-giolitti.net",
+      "region": "Basilicata",
+      "province": "FC",
+      "common": "Fedele del friuli",
+      "cap": "49143",
+      "houseNumber": "790",
+      "address": "Rotonda Melania",
+      "latitude": 31.39199,
+      "longitude": 23.410987,
+      "pec": "lmaderno@poste.it",
+      "sdiCode": "EJe9713"
+    },
+    {
+      "_id": {
+        "$oid": "d279189ae79f3f5df0c21efe"
+      },
+      "companyName": "Fanucci, Barese e Cavanna SPA",
+      "vatNumber": "IT87253243899",
+      "phone": "+39 06 1553416",
+      "email": "rominagiorgetti@spallanzani.eu",
+      "region": "Sicilia",
+      "province": "BA",
+      "common": "Sesto Piergiorgio",
+      "cap": "70385",
+      "houseNumber": "67",
+      "address": "Viale Bianchini",
+      "latitude": 63.884068,
+      "longitude": -133.515823,
+      "pec": "gianluca14@vidoni-sraffa.com",
+      "sdiCode": "uvu4078"
+    },
+    {
+      "_id": {
+        "$oid": "bfcd2058f813a37b3b42a41a"
+      },
+      "companyName": "Blasi Group",
+      "vatNumber": "IT49615313874",
+      "phone": "+39 68 1639776",
+      "email": "vpacomio@pizzetti.com",
+      "region": "Toscana",
+      "province": "BR",
+      "common": "Gullotta del friuli",
+      "cap": "23631",
+      "houseNumber": "1",
+      "address": "Contrada Nicol\u00f2",
+      "latitude": -30.573194,
+      "longitude": 46.538739,
+      "pec": "diana63@live.com",
+      "sdiCode": "Lcq4391"
+    },
+    {
+      "_id": {
+        "$oid": "8fa60834e753e6458510ecc1"
+      },
+      "companyName": "Parini s.r.l.",
+      "vatNumber": "IT46413945721",
+      "phone": "+39 531 44754813",
+      "email": "domenicoceschi@babato-sibilia.net",
+      "region": "Liguria",
+      "province": "AR",
+      "common": "Settimo Maurizio sardo",
+      "cap": "68826",
+      "houseNumber": "91",
+      "address": "Piazza Graziano",
+      "latitude": 87.349523,
+      "longitude": 131.100835,
+      "pec": "merisimarcello@live.com",
+      "sdiCode": "VqD5840"
+    },
+    {
+      "_id": {
+        "$oid": "d375ef6d2da41378e7304ecc"
+      },
+      "companyName": "Garibaldi-Taccola e figli",
+      "vatNumber": "IT85301467178",
+      "phone": "+39 05 04020877",
+      "email": "olgaanastasi@fagotto-goldoni.it",
+      "region": "Basilicata",
+      "province": "MS",
+      "common": "Giorgio veneto",
+      "cap": "79580",
+      "houseNumber": "0",
+      "address": "Strada Chiara",
+      "latitude": 88.932888,
+      "longitude": 68.471377,
+      "pec": "darialombardo@muti-borromeo.com",
+      "sdiCode": "fRJ9449"
+    },
+    {
+      "_id": {
+        "$oid": "33287422a58e2aff183abd82"
+      },
+      "companyName": "Maffei SPA",
+      "vatNumber": "IT84868780763",
+      "phone": "+39 7440 9292693",
+      "email": "tsalata@proietti.it",
+      "region": "Toscana",
+      "province": "VV",
+      "common": "Sesto Ettore",
+      "cap": "24080",
+      "houseNumber": "67",
+      "address": "Vicolo Frescobaldi",
+      "latitude": 15.731551,
+      "longitude": 8.656189,
+      "pec": "lucioboccherini@tim.it",
+      "sdiCode": "BXl4026"
+    },
+    {
+      "_id": {
+        "$oid": "0eb10dd203354acd1f53fd2e"
+      },
+      "companyName": "Zabarella-Bertoli s.r.l.",
+      "vatNumber": "IT26999679364",
+      "phone": "+39 4322 7522181",
+      "email": "rborghese@abate-gualtieri.it",
+      "region": "Puglia",
+      "province": "MC",
+      "common": "Dino calabro",
+      "cap": "17926",
+      "houseNumber": "76",
+      "address": "Stretto Veltroni",
+      "latitude": -80.825865,
+      "longitude": 161.657323,
+      "pec": "sommarugarosina@majorana.com",
+      "sdiCode": "tiI0244"
+    },
+    {
+      "_id": {
+        "$oid": "ec6045a1f560a05b50473911"
+      },
+      "companyName": "Ferrante Group",
+      "vatNumber": "IT41343981885",
+      "phone": "+39 349 55871232",
+      "email": "amanda06@comencini.com",
+      "region": "Lombardia",
+      "province": "CR",
+      "common": "Sesto Rosaria",
+      "cap": "05142",
+      "houseNumber": "169",
+      "address": "Stretto Giannone",
+      "latitude": -31.135074,
+      "longitude": 20.157792,
+      "pec": "lpizziol@poste.it",
+      "sdiCode": "vDt4476"
+    },
+    {
+      "_id": {
+        "$oid": "6d83b2bc92ad9479f0253fce"
+      },
+      "companyName": "Papetti Group",
+      "vatNumber": "IT36249669381",
+      "phone": "+39 3594 40024326",
+      "email": "qsalvo@pedrazzini-nonis.com",
+      "region": "Veneto",
+      "province": "PG",
+      "common": "Monte nell'emilia",
+      "cap": "60931",
+      "houseNumber": "410",
+      "address": "Stretto Leonardo",
+      "latitude": 89.34908,
+      "longitude": 145.970936,
+      "pec": "malpighiluciano@nicoletti.org",
+      "sdiCode": "Lbd5189"
+    },
+    {
+      "_id": {
+        "$oid": "cfa6350bd02fe4d2d7da84f1"
+      },
+      "companyName": "Salvini-Trombetta e figli",
+      "vatNumber": "IT56074179306",
+      "phone": "+39 290 74922675",
+      "email": "castellittoraffaella@dallape-berlusconi.it",
+      "region": "Sardegna",
+      "province": "BO",
+      "common": "Borgo Mauro",
+      "cap": "42505",
+      "houseNumber": "4",
+      "address": "Via Fiorenzo",
+      "latitude": -87.63568,
+      "longitude": -2.230187,
+      "pec": "ermenegildoalighieri@raimondi.it",
+      "sdiCode": "PfM0670"
+    },
+    {
+      "_id": {
+        "$oid": "0168f44c1c9f6515f11b309d"
+      },
+      "companyName": "Ferrazzi-Orlando SPA",
+      "vatNumber": "IT31660470820",
+      "phone": "+39 90 1215638",
+      "email": "romanaaporti@bonaventura.org",
+      "region": "Basilicata",
+      "province": "TP",
+      "common": "Borgo Uberto terme",
+      "cap": "74615",
+      "houseNumber": "445",
+      "address": "Viale Nicolucci",
+      "latitude": -7.091919,
+      "longitude": -144.25909,
+      "pec": "viridiana66@dandolo.it",
+      "sdiCode": "DFj3765"
+    },
+    {
+      "_id": {
+        "$oid": "4f3f79e4fe0b696b9ebf5725"
+      },
+      "companyName": "Mattarella, Prada e Montesano s.r.l.",
+      "vatNumber": "IT22405981869",
+      "phone": "+39 874 41 27 7063",
+      "email": "sabbatinigianfrancesco@pizzo-troisi.org",
+      "region": "Campania",
+      "province": "FC",
+      "common": "Zanazzo ligure",
+      "cap": "72558",
+      "houseNumber": "303",
+      "address": "Contrada Silvestri",
+      "latitude": -82.718724,
+      "longitude": -105.495959,
+      "pec": "albertobaggio@tim.it",
+      "sdiCode": "dyT5259"
+    },
+    {
+      "_id": {
+        "$oid": "710e15b797a01c4dc9125593"
+      },
+      "companyName": "Ioppi, Zaguri e Foletti s.r.l.",
+      "vatNumber": "IT34868462668",
+      "phone": "+39 25 14008933",
+      "email": "violagiorgio@turchetta-comboni.it",
+      "region": "Puglia",
+      "province": "RM",
+      "common": "Quarto Paolo del friuli",
+      "cap": "77996",
+      "houseNumber": "68",
+      "address": "Piazza Tatiana",
+      "latitude": 62.973411,
+      "longitude": 21.637237,
+      "pec": "agnolo45@hotmail.com",
+      "sdiCode": "Oye2665"
+    },
+    {
+      "_id": {
+        "$oid": "b471e4ac3714960b776b1e8a"
+      },
+      "companyName": "Leonetti-Martucci s.r.l.",
+      "vatNumber": "IT75002131456",
+      "phone": "+39 69 64890279",
+      "email": "cterragni@maglio-cagnin.it",
+      "region": "Valle d'Aosta",
+      "province": "MS",
+      "common": "Sesto Achille del friuli",
+      "cap": "77723",
+      "houseNumber": "37",
+      "address": "Canale Pompeo",
+      "latitude": -53.493508,
+      "longitude": 131.567717,
+      "pec": "ninaturchetta@gmail.com",
+      "sdiCode": "tpI1569"
+    },
+    {
+      "_id": {
+        "$oid": "62bec3295ceb305a667bd1a3"
+      },
+      "companyName": "Medici, Pratesi e Tafuri e figli",
+      "vatNumber": "IT40895357961",
+      "phone": "+39 416 28 01 6421",
+      "email": "kmazzi@grasso.eu",
+      "region": "Liguria",
+      "province": "BR",
+      "common": "Borgo Enzo",
+      "cap": "75281",
+      "houseNumber": "92",
+      "address": "Canale Leopoldo",
+      "latitude": -56.244154,
+      "longitude": 59.341366,
+      "pec": "upapafava@fastwebnet.it",
+      "sdiCode": "TAH6504"
+    },
+    {
+      "_id": {
+        "$oid": "5b84a875b447d68772ec94a6"
+      },
+      "companyName": "Comboni-Depero Group",
+      "vatNumber": "IT79897361641",
+      "phone": "+39 93 42666733",
+      "email": "hschiaparelli@zacco.com",
+      "region": "Campania",
+      "province": "RO",
+      "common": "San Lilla",
+      "cap": "55649",
+      "houseNumber": "3",
+      "address": "Rotonda Ciampi",
+      "latitude": 66.49524,
+      "longitude": 161.356017,
+      "pec": "ottinoroberto@manacorda.it",
+      "sdiCode": "tht6402"
+    },
+    {
+      "_id": {
+        "$oid": "6c1c9030de35cf18bbf69c3d"
+      },
+      "companyName": "Magnani-Argenti s.r.l.",
+      "vatNumber": "IT24710773965",
+      "phone": "+39 3872 03919001",
+      "email": "matilda70@gibilisco.it",
+      "region": "Molise",
+      "province": "SP",
+      "common": "Borgo Teresa",
+      "cap": "06983",
+      "houseNumber": "4",
+      "address": "Canale Antonello",
+      "latitude": -83.258722,
+      "longitude": 6.009056,
+      "pec": "argentinatalia@vodafone.it",
+      "sdiCode": "DMu6909"
+    },
+    {
+      "_id": {
+        "$oid": "c481cfadb4dbabc0b5daaf5a"
+      },
+      "companyName": "Gregorio s.r.l.",
+      "vatNumber": "IT77134043935",
+      "phone": "+39 291 9390244",
+      "email": "luciano86@pellico-tosi.org",
+      "region": "Umbria",
+      "province": "PZ",
+      "common": "Sagredo del friuli",
+      "cap": "90638",
+      "houseNumber": "260",
+      "address": "Viale Luigina",
+      "latitude": 18.79026,
+      "longitude": -130.624327,
+      "pec": "tarantinimauro@petrucci-solari.it",
+      "sdiCode": "rRs6290"
+    },
+    {
+      "_id": {
+        "$oid": "9ebbfb7010008e2cc7f2f32b"
+      },
+      "companyName": "Guicciardini Group",
+      "vatNumber": "IT38530166062",
+      "phone": "+39 9575 7503970",
+      "email": "sorditelemaco@strangio-antonacci.it",
+      "region": "Umbria",
+      "province": "SR",
+      "common": "Settimo Maurilio",
+      "cap": "94863",
+      "houseNumber": "65",
+      "address": "Contrada Dulbecco",
+      "latitude": -73.497062,
+      "longitude": -129.554295,
+      "pec": "delfino89@palombi.org",
+      "sdiCode": "xtA7662"
+    },
+    {
+      "_id": {
+        "$oid": "e08ef5903b5a448b8e796250"
+      },
+      "companyName": "Agostinelli, Manolesso e Montanariello Group",
+      "vatNumber": "IT87536574916",
+      "phone": "+39 80 7519218",
+      "email": "ubertotencalla@boccaccio.eu",
+      "region": "Abruzzo",
+      "province": "AV",
+      "common": "Salvatore umbro",
+      "cap": "35640",
+      "houseNumber": "722",
+      "address": "Vicolo Juvara",
+      "latitude": -82.850609,
+      "longitude": -97.560864,
+      "pec": "paulina60@yahoo.com",
+      "sdiCode": "NIC7820"
+    },
+    {
+      "_id": {
+        "$oid": "7ab250a3c3924b6cf49b9870"
+      },
+      "companyName": "Migliaccio s.r.l.",
+      "vatNumber": "IT80207921708",
+      "phone": "+39 56 8853386",
+      "email": "fabiocapecchi@camicione-iannotti.net",
+      "region": "Veneto",
+      "province": "PO",
+      "common": "Settimo Donatella a mare",
+      "cap": "98647",
+      "houseNumber": "88",
+      "address": "Stretto Migliaccio",
+      "latitude": -71.666312,
+      "longitude": 46.178905,
+      "pec": "montelaureano@tin.it",
+      "sdiCode": "Cce2277"
+    },
+    {
+      "_id": {
+        "$oid": "d8c43a64894928c7de2a0796"
+      },
+      "companyName": "Jovinelli-Deledda Group",
+      "vatNumber": "IT07633698898",
+      "phone": "+39 5993 2675993",
+      "email": "angelodonati@barillaro-giolitti.it",
+      "region": "Puglia",
+      "province": "VV",
+      "common": "Trombetta sardo",
+      "cap": "60601",
+      "houseNumber": "1",
+      "address": "Strada Luciana",
+      "latitude": 81.327632,
+      "longitude": -148.770814,
+      "pec": "zbellocchio@gmail.com",
+      "sdiCode": "CgU5786"
+    },
+    {
+      "_id": {
+        "$oid": "d148ea9413ee751fb406c636"
+      },
+      "companyName": "Cerutti Group",
+      "vatNumber": "IT35617793517",
+      "phone": "+39 502 10 74 3831",
+      "email": "barbarigomarina@bazzi.eu",
+      "region": "Piemonte",
+      "province": "RI",
+      "common": "Quarto Sandra",
+      "cap": "73400",
+      "houseNumber": "576",
+      "address": "Piazza Dellucci",
+      "latitude": 50.177264,
+      "longitude": 155.763875,
+      "pec": "ceriantonina@peruzzi-sanudo.eu",
+      "sdiCode": "yvL1504"
+    },
+    {
+      "_id": {
+        "$oid": "8d4927df5c4d2a1359fcbc17"
+      },
+      "companyName": "Fittipaldi s.r.l.",
+      "vatNumber": "IT14022923422",
+      "phone": "+39 4970 60308007",
+      "email": "nfarina@parini.com",
+      "region": "Valle d'Aosta",
+      "province": "IM",
+      "common": "Pacillo lido",
+      "cap": "94849",
+      "houseNumber": "7",
+      "address": "Vicolo Iolanda",
+      "latitude": -89.844255,
+      "longitude": 20.166849,
+      "pec": "lucio63@libero.it",
+      "sdiCode": "RwT1316"
+    },
+    {
+      "_id": {
+        "$oid": "7d12e6465c79fb909261cf0f"
+      },
+      "companyName": "Pezzali-Fantini SPA",
+      "vatNumber": "IT26150233919",
+      "phone": "+39 556 4012582",
+      "email": "gino20@omma.net",
+      "region": "Valle d'Aosta",
+      "province": "PT",
+      "common": "Renzo sardo",
+      "cap": "04400",
+      "houseNumber": "96",
+      "address": "Vicolo Cusano",
+      "latitude": 7.663118,
+      "longitude": -135.964533,
+      "pec": "romanabongiorno@fastwebnet.it",
+      "sdiCode": "oPn6931"
+    },
+    {
+      "_id": {
+        "$oid": "de80cec831f881362369a8eb"
+      },
+      "companyName": "Carnera, Lovato e Ziani Group",
+      "vatNumber": "IT95113199598",
+      "phone": "+39 5077 5557175",
+      "email": "giampaolo37@granatelli.org",
+      "region": "Sicilia",
+      "province": "PN",
+      "common": "Borgo Panfilo laziale",
+      "cap": "88944",
+      "houseNumber": "1",
+      "address": "Contrada Coluccio",
+      "latitude": -51.115618,
+      "longitude": -66.239657,
+      "pec": "cugiaelmo@gmail.com",
+      "sdiCode": "cdl0053"
+    },
+    {
+      "_id": {
+        "$oid": "1ac0893b5ad8df8ef0d84c65"
+      },
+      "companyName": "Aloisio, Tartaglia e Venditti e figli",
+      "vatNumber": "IT99860927797",
+      "phone": "+39 946 7539004",
+      "email": "berenice76@acerbi.it",
+      "region": "Sicilia",
+      "province": "VR",
+      "common": "Borgo Monica",
+      "cap": "30005",
+      "houseNumber": "786",
+      "address": "Contrada Ruffini",
+      "latitude": 21.430816,
+      "longitude": 147.493966,
+      "pec": "hugobosio@mogherini.eu",
+      "sdiCode": "MNo0305"
+    },
+    {
+      "_id": {
+        "$oid": "329b05a5d76864a05faa0279"
+      },
+      "companyName": "Gulotta Group",
+      "vatNumber": "IT15530491502",
+      "phone": "+39 3824 2514196",
+      "email": "pdepero@chindamo.com",
+      "region": "Lombardia",
+      "province": "BI",
+      "common": "Settimo Giulio",
+      "cap": "32851",
+      "houseNumber": "89",
+      "address": "Stretto Nadia",
+      "latitude": -38.024278,
+      "longitude": -137.477853,
+      "pec": "cadornaantonia@luxardo-granatelli.com",
+      "sdiCode": "Qfz4558"
+    },
+    {
+      "_id": {
+        "$oid": "e11dcad5d0489b7c206cf873"
+      },
+      "companyName": "Giammusso, Bembo e Battaglia Group",
+      "vatNumber": "IT00855208438",
+      "phone": "+39 62 8015748",
+      "email": "blasidaria@boezio-giacconi.eu",
+      "region": "Sicilia",
+      "province": "PA",
+      "common": "Cirillo laziale",
+      "cap": "31431",
+      "houseNumber": "1",
+      "address": "Viale Emilio",
+      "latitude": 35.009172,
+      "longitude": 113.875317,
+      "pec": "bonolislodovico@orlando.it",
+      "sdiCode": "WVJ0003"
+    },
+    {
+      "_id": {
+        "$oid": "3a2bd41861c829c0ac7340ac"
+      },
+      "companyName": "Serao SPA",
+      "vatNumber": "IT78491565363",
+      "phone": "+39 4853 9567425",
+      "email": "margheritaguinizzelli@salata-ceschi.com",
+      "region": "Sardegna",
+      "province": "RC",
+      "common": "Borgo Mirco",
+      "cap": "68534",
+      "houseNumber": "9",
+      "address": "Incrocio Raffaellino",
+      "latitude": 88.568795,
+      "longitude": 54.188281,
+      "pec": "staglienoisabella@tim.it",
+      "sdiCode": "BlM1767"
+    },
+    {
+      "_id": {
+        "$oid": "a3408f120fdfd4e89fd4ec17"
+      },
+      "companyName": "Cesarotti, Combi e Maffei s.r.l.",
+      "vatNumber": "IT06636797028",
+      "phone": "+39 176 25 06 8400",
+      "email": "matilda38@tomei.it",
+      "region": "Calabria",
+      "province": "PR",
+      "common": "Settimo Greca",
+      "cap": "06727",
+      "houseNumber": "788",
+      "address": "Via Silvio",
+      "latitude": 55.84497,
+      "longitude": -124.391735,
+      "pec": "alfiogolino@vodafone.it",
+      "sdiCode": "jws9775"
+    },
+    {
+      "_id": {
+        "$oid": "fbe1ebbea871e6262fa9b843"
+      },
+      "companyName": "Abbagnale-Balotelli Group",
+      "vatNumber": "IT01429711932",
+      "phone": "+39 97 40796558",
+      "email": "lucianaargurio@raimondi.org",
+      "region": "Sicilia",
+      "province": "CI",
+      "common": "Giosu\u00e8 laziale",
+      "cap": "42239",
+      "houseNumber": "60",
+      "address": "Via Montessori",
+      "latitude": -14.359644,
+      "longitude": 159.7041,
+      "pec": "giada88@gmail.com",
+      "sdiCode": "Kfv9388"
+    },
+    {
+      "_id": {
+        "$oid": "f61014353ea19b12d03431b8"
+      },
+      "companyName": "Salvemini-Mastroianni SPA",
+      "vatNumber": "IT90735328234",
+      "phone": "+39 57 85203945",
+      "email": "lucianaroero@antonini.it",
+      "region": "Valle d'Aosta",
+      "province": "NU",
+      "common": "Adriano ligure",
+      "cap": "18330",
+      "houseNumber": "319",
+      "address": "Canale Agazzi",
+      "latitude": 16.972013,
+      "longitude": 131.147917,
+      "pec": "colucciomarino@vigorelli-benedetti.it",
+      "sdiCode": "Rmp0174"
+    },
+    {
+      "_id": {
+        "$oid": "1144b252507d5731c158c8af"
+      },
+      "companyName": "Desio SPA",
+      "vatNumber": "IT43012105676",
+      "phone": "+39 103 61 79 9073",
+      "email": "qmalipiero@fittipaldi.it",
+      "region": "Lombardia",
+      "province": "CZ",
+      "common": "Marissa calabro",
+      "cap": "02751",
+      "houseNumber": "9",
+      "address": "Incrocio Pezzali",
+      "latitude": 48.944766,
+      "longitude": -85.915435,
+      "pec": "piergiorgio89@outlook.com",
+      "sdiCode": "BTZ5698"
+    },
+    {
+      "_id": {
+        "$oid": "6e8dde59071aa132a7a2bb36"
+      },
+      "companyName": "Perozzo, Zarlino e Camuccini s.r.l.",
+      "vatNumber": "IT44671145345",
+      "phone": "+39 767 43405686",
+      "email": "augusto45@finzi.it",
+      "region": "Umbria",
+      "province": "AG",
+      "common": "Gianluca sardo",
+      "cap": "94727",
+      "houseNumber": "872",
+      "address": "Stretto Cavalcanti",
+      "latitude": -13.983739,
+      "longitude": 130.210459,
+      "pec": "ninapizziol@virgilio.it",
+      "sdiCode": "CHX8543"
+    },
+    {
+      "_id": {
+        "$oid": "f65ed48cf27d8c4c1462fee1"
+      },
+      "companyName": "Antonini e figli",
+      "vatNumber": "IT45657906293",
+      "phone": "+39 20 96703360",
+      "email": "donatella53@micheletti-nordio.it",
+      "region": "Puglia",
+      "province": "VE",
+      "common": "Mercedes terme",
+      "cap": "27871",
+      "houseNumber": "253",
+      "address": "Borgo Vincenza",
+      "latitude": 53.070898,
+      "longitude": -6.398355,
+      "pec": "chindamorembrandt@outlook.com",
+      "sdiCode": "wgP4878"
+    },
+    {
+      "_id": {
+        "$oid": "5b26df8252cdb8709cc5d1a7"
+      },
+      "companyName": "Gussoni-Norbiato Group",
+      "vatNumber": "IT32520470027",
+      "phone": "+39 558 11615104",
+      "email": "cassandra20@granatelli.it",
+      "region": "Basilicata",
+      "province": "IM",
+      "common": "Settimo Dionigi laziale",
+      "cap": "69701",
+      "houseNumber": "217",
+      "address": "Piazza Stefania",
+      "latitude": -3.161922,
+      "longitude": 128.30564,
+      "pec": "bottaalberico@hotmail.it",
+      "sdiCode": "GQG1523"
+    },
+    {
+      "_id": {
+        "$oid": "fa1dcdb645d5b72b97a4cde4"
+      },
+      "companyName": "Pontecorvo, Buscetta e Emo Group",
+      "vatNumber": "IT97283390605",
+      "phone": "+39 40 36651088",
+      "email": "collinamaria@grassi.eu",
+      "region": "Sicilia",
+      "province": "BA",
+      "common": "Argurio ligure",
+      "cap": "81853",
+      "houseNumber": "138",
+      "address": "Piazza Monte",
+      "latitude": 50.55947,
+      "longitude": 94.751512,
+      "pec": "gozziermenegildo@nonis-viola.com",
+      "sdiCode": "JRy8946"
+    },
+    {
+      "_id": {
+        "$oid": "44fd5b85fd9e3fca37d0654b"
+      },
+      "companyName": "Fermi, Travaglio e Lupo Group",
+      "vatNumber": "IT93894444848",
+      "phone": "+39 64 1184812",
+      "email": "nmicca@scalera.net",
+      "region": "Abruzzo",
+      "province": "PE",
+      "common": "Massimiliano umbro",
+      "cap": "85358",
+      "houseNumber": "5",
+      "address": "Vicolo Aria",
+      "latitude": 43.402118,
+      "longitude": -178.454129,
+      "pec": "napoleonegilardoni@gmail.com",
+      "sdiCode": "Hvr2074"
+    },
+    {
+      "_id": {
+        "$oid": "9c95b79a8c12619f30d5fa6a"
+      },
+      "companyName": "Donati-Ioppi Group",
+      "vatNumber": "IT85611220725",
+      "phone": "+39 3206 8678913",
+      "email": "rubertoangelica@polesel.com",
+      "region": "Campania",
+      "province": "RN",
+      "common": "Sesto Ottavio",
+      "cap": "63182",
+      "houseNumber": "57",
+      "address": "Vicolo Giulietta",
+      "latitude": -72.646704,
+      "longitude": 44.066548,
+      "pec": "bevilacquaatenulf@castelli.it",
+      "sdiCode": "Wkh3848"
+    },
+    {
+      "_id": {
+        "$oid": "f2d176a96015e990ce8a6d27"
+      },
+      "companyName": "Gaito, Priuli e Bragadin SPA",
+      "vatNumber": "IT12572998534",
+      "phone": "+39 1085 75062143",
+      "email": "sorrentinoflavia@anguillara.it",
+      "region": "Trentino-Alto Adige",
+      "province": "BO",
+      "common": "Sesto Aldo",
+      "cap": "69597",
+      "houseNumber": "073",
+      "address": "Stretto Bocelli",
+      "latitude": 16.467492,
+      "longitude": -88.405092,
+      "pec": "giuliana62@yahoo.com",
+      "sdiCode": "Nob1547"
+    },
+    {
+      "_id": {
+        "$oid": "d0cfba28b6f486251b6d58d4"
+      },
+      "companyName": "Mercalli SPA",
+      "vatNumber": "IT32884424753",
+      "phone": "+39 201 0385413",
+      "email": "finottocipriano@scotti.it",
+      "region": "Campania",
+      "province": "PV",
+      "common": "Bruno laziale",
+      "cap": "74128",
+      "houseNumber": "811",
+      "address": "Vicolo Durante",
+      "latitude": -5.60602,
+      "longitude": 137.998255,
+      "pec": "sopranosilvio@galiazzo.it",
+      "sdiCode": "HvV9371"
+    },
+    {
+      "_id": {
+        "$oid": "baef5b57bc1a41b3a25aa182"
+      },
+      "companyName": "Redi-Fallaci SPA",
+      "vatNumber": "IT96615399956",
+      "phone": "+39 6337 93373365",
+      "email": "massimilianodossi@salvini.com",
+      "region": "Sardegna",
+      "province": "IM",
+      "common": "Eva ligure",
+      "cap": "12032",
+      "houseNumber": "10",
+      "address": "Borgo Franscini",
+      "latitude": -51.479676,
+      "longitude": 90.502017,
+      "pec": "liliana90@antonioni.it",
+      "sdiCode": "tEi3909"
+    },
+    {
+      "_id": {
+        "$oid": "cb3cb3e0445d8ab6064ffbbb"
+      },
+      "companyName": "Musatti-Marini e figli",
+      "vatNumber": "IT17988767452",
+      "phone": "+39 5285 0767933",
+      "email": "kgiolitti@miniati-brichese.it",
+      "region": "Molise",
+      "province": "RG",
+      "common": "Capecchi nell'emilia",
+      "cap": "52015",
+      "houseNumber": "17",
+      "address": "Incrocio Romeo",
+      "latitude": 36.090028,
+      "longitude": -83.441114,
+      "pec": "cipollafortunata@agostini.it",
+      "sdiCode": "UHM2541"
+    },
+    {
+      "_id": {
+        "$oid": "29ca7f6375479de9fab17b9b"
+      },
+      "companyName": "Moneta, Tiepolo e Renault s.r.l.",
+      "vatNumber": "IT45817271125",
+      "phone": "+39 0228 81402438",
+      "email": "ninetta27@galiazzo.com",
+      "region": "Campania",
+      "province": "MI",
+      "common": "Ludovica del friuli",
+      "cap": "18264",
+      "houseNumber": "7",
+      "address": "Vicolo Saragat",
+      "latitude": -53.51369,
+      "longitude": 15.660496,
+      "pec": "clelia35@puglisi-falloppio.com",
+      "sdiCode": "EaP6990"
+    },
+    {
+      "_id": {
+        "$oid": "361aed9e34e9fc99b9fc2b3e"
+      },
+      "companyName": "Cappelli, Interiano e Cilibrasi e figli",
+      "vatNumber": "IT82243494377",
+      "phone": "+39 77 28093262",
+      "email": "benedettilodovico@correr.it",
+      "region": "Veneto",
+      "province": "TN",
+      "common": "Quarto Edoardo veneto",
+      "cap": "44118",
+      "houseNumber": "012",
+      "address": "Rotonda Zetticci",
+      "latitude": -2.403176,
+      "longitude": 51.183978,
+      "pec": "luciasabatini@corbo.com",
+      "sdiCode": "cAZ2559"
+    },
+    {
+      "_id": {
+        "$oid": "df73304ae8b4fa481f8b2e98"
+      },
+      "companyName": "Matteotti e figli",
+      "vatNumber": "IT49268316331",
+      "phone": "+39 3212 8015545",
+      "email": "paltrinierifiorenzo@cutuli.com",
+      "region": "Liguria",
+      "province": "BA",
+      "common": "Sesto Lilla laziale",
+      "cap": "48552",
+      "houseNumber": "2",
+      "address": "Canale Piane",
+      "latitude": 18.339332,
+      "longitude": -50.170601,
+      "pec": "comencinimaura@medici-piccio.it",
+      "sdiCode": "mQb4253"
+    },
+    {
+      "_id": {
+        "$oid": "d1e406e1df2e50bf6176acc2"
+      },
+      "companyName": "Guarato-Mattarella SPA",
+      "vatNumber": "IT62517786371",
+      "phone": "+39 843 19530699",
+      "email": "fabrizio94@filzi-verdone.com",
+      "region": "Valle d'Aosta",
+      "province": "BG",
+      "common": "Settimo Atenulf sardo",
+      "cap": "38526",
+      "houseNumber": "860",
+      "address": "Via Morpurgo",
+      "latitude": 4.53768,
+      "longitude": -132.332158,
+      "pec": "emomarta@serraglio.it",
+      "sdiCode": "wnR2681"
+    },
+    {
+      "_id": {
+        "$oid": "daa6583de4f192527a2e587b"
+      },
+      "companyName": "Salandra, Interiano e Balbo SPA",
+      "vatNumber": "IT70347929492",
+      "phone": "+39 92 6268378",
+      "email": "raffaellinopacomio@speri-piovani.com",
+      "region": "Sicilia",
+      "province": "FR",
+      "common": "San Valerio salentino",
+      "cap": "46041",
+      "houseNumber": "454",
+      "address": "Piazza Niggli",
+      "latitude": -45.255978,
+      "longitude": -107.74639,
+      "pec": "enricogiannotti@yahoo.com",
+      "sdiCode": "uEl1696"
+    },
+    {
+      "_id": {
+        "$oid": "8fe5d60d5961f323550c24e5"
+      },
+      "companyName": "Roccabonella-Spadafora e figli",
+      "vatNumber": "IT19198553691",
+      "phone": "+39 48 33589283",
+      "email": "lbaglioni@conti-bernini.org",
+      "region": "Lazio",
+      "province": "TE",
+      "common": "Sesto Benvenuto umbro",
+      "cap": "70749",
+      "houseNumber": "706",
+      "address": "Piazza Cesare",
+      "latitude": -26.030827,
+      "longitude": -96.14713,
+      "pec": "monteverdiannetta@tiscali.it",
+      "sdiCode": "HFJ2807"
+    },
+    {
+      "_id": {
+        "$oid": "8401d06ee41e2bc4fb144c21"
+      },
+      "companyName": "Borsiere, Randazzo e Ceri e figli",
+      "vatNumber": "IT78086896433",
+      "phone": "+39 5137 17592097",
+      "email": "temistocle61@cossiga-druso.it",
+      "region": "Basilicata",
+      "province": "AN",
+      "common": "Sesto Antonina",
+      "cap": "54237",
+      "houseNumber": "1",
+      "address": "Incrocio Imelda",
+      "latitude": 4.021068,
+      "longitude": -178.373237,
+      "pec": "nico65@sandi.it",
+      "sdiCode": "rYS5640"
+    },
+    {
+      "_id": {
+        "$oid": "13724305aa8b62aff4d94991"
+      },
+      "companyName": "Pergolesi e figli",
+      "vatNumber": "IT35423090317",
+      "phone": "+39 8569 73531764",
+      "email": "renatatacchini@luria.it",
+      "region": "Marche",
+      "province": "AP",
+      "common": "Angeli terme",
+      "cap": "69067",
+      "houseNumber": "56",
+      "address": "Piazza Gotti",
+      "latitude": 55.743576,
+      "longitude": 100.78549,
+      "pec": "sbonolis@salgari-columbo.eu",
+      "sdiCode": "Ybz8125"
+    },
+    {
+      "_id": {
+        "$oid": "9e2520c739a4ae2457e6bddf"
+      },
+      "companyName": "Cossiga-Mortati Group",
+      "vatNumber": "IT17042085666",
+      "phone": "+39 959 87 93 6437",
+      "email": "pina05@esposito.com",
+      "region": "Puglia",
+      "province": "BG",
+      "common": "Victoria lido",
+      "cap": "29393",
+      "houseNumber": "5",
+      "address": "Incrocio Jolanda",
+      "latitude": 32.661578,
+      "longitude": -13.85488,
+      "pec": "amleto91@berengario-saraceno.eu",
+      "sdiCode": "uaG7954"
+    },
+    {
+      "_id": {
+        "$oid": "c903d6ee073ac84c2a6ad3d0"
+      },
+      "companyName": "Petrucci SPA",
+      "vatNumber": "IT28832962331",
+      "phone": "+39 6834 8485487",
+      "email": "alfio81@ciampi-bixio.it",
+      "region": "Piemonte",
+      "province": "CN",
+      "common": "Quarto Coluccio",
+      "cap": "20422",
+      "houseNumber": "444",
+      "address": "Canale Comeriato",
+      "latitude": -50.878981,
+      "longitude": -128.520761,
+      "pec": "fredoaulenti@tin.it",
+      "sdiCode": "uuq9710"
+    },
+    {
+      "_id": {
+        "$oid": "c686ec915e4c49611dc62aa9"
+      },
+      "companyName": "Cheda-Pigafetta SPA",
+      "vatNumber": "IT48038264549",
+      "phone": "+39 7672 3539952",
+      "email": "jdraghi@salvemini.it",
+      "region": "Toscana",
+      "province": "LO",
+      "common": "Leonardi calabro",
+      "cap": "41480",
+      "houseNumber": "42",
+      "address": "Strada Baggio",
+      "latitude": -89.874533,
+      "longitude": -74.191483,
+      "pec": "battellinina@fastwebnet.it",
+      "sdiCode": "kLS7925"
+    },
+    {
+      "_id": {
+        "$oid": "0dad156557bb2ab2ba5d47f1"
+      },
+      "companyName": "Bernini-Zetticci SPA",
+      "vatNumber": "IT32197189094",
+      "phone": "+39 012 1252947",
+      "email": "ipizziol@gelli.it",
+      "region": "Liguria",
+      "province": "RI",
+      "common": "Sole veneto",
+      "cap": "14965",
+      "houseNumber": "49",
+      "address": "Stretto Ruggiero",
+      "latitude": -5.176605,
+      "longitude": 31.554233,
+      "pec": "rpuccini@poste.it",
+      "sdiCode": "gZG2944"
+    },
+    {
+      "_id": {
+        "$oid": "ae54493acc4dcedcd148ecff"
+      },
+      "companyName": "Crisafulli Group",
+      "vatNumber": "IT88290142460",
+      "phone": "+39 1560 38408891",
+      "email": "donnanitti@murri.com",
+      "region": "Lazio",
+      "province": "BT",
+      "common": "Borgo Gelsomina",
+      "cap": "35850",
+      "houseNumber": "66",
+      "address": "Borgo Stefanelli",
+      "latitude": 15.365337,
+      "longitude": -105.129218,
+      "pec": "renzocuratoli@libero.it",
+      "sdiCode": "txi0294"
+    },
+    {
+      "_id": {
+        "$oid": "a4da9f172c8f1bfc579210a2"
+      },
+      "companyName": "Benussi-Omma e figli",
+      "vatNumber": "IT38139913394",
+      "phone": "+39 38 6663454",
+      "email": "geronimofarnese@magnani.com",
+      "region": "Sardegna",
+      "province": "AN",
+      "common": "Borgo Paola ligure",
+      "cap": "78756",
+      "houseNumber": "010",
+      "address": "Borgo Adinolfi",
+      "latitude": 86.409761,
+      "longitude": -30.4184,
+      "pec": "ernesto84@libero.it",
+      "sdiCode": "OOD7350"
+    },
+    {
+      "_id": {
+        "$oid": "1f540cc79d1b56ec38a06478"
+      },
+      "companyName": "Gigli Group",
+      "vatNumber": "IT32016719626",
+      "phone": "+39 963 4149211",
+      "email": "pabbagnale@peranda.org",
+      "region": "Lombardia",
+      "province": "RE",
+      "common": "Musatti a mare",
+      "cap": "18055",
+      "houseNumber": "949",
+      "address": "Canale Paride",
+      "latitude": 89.605851,
+      "longitude": -65.278536,
+      "pec": "bovaangelica@alfieri.org",
+      "sdiCode": "nyi9345"
+    },
+    {
+      "_id": {
+        "$oid": "830d5e70b2f48a1ba078cf0a"
+      },
+      "companyName": "Satta, Piazzi e Borromeo s.r.l.",
+      "vatNumber": "IT97998668670",
+      "phone": "+39 25 0281916",
+      "email": "franzeseisa@gabbana-righi.it",
+      "region": "Liguria",
+      "province": "RN",
+      "common": "Nosiglia veneto",
+      "cap": "98759",
+      "houseNumber": "0",
+      "address": "Via Bernini",
+      "latitude": -20.001979,
+      "longitude": 160.556463,
+      "pec": "briccialdilorenzo@poste.it",
+      "sdiCode": "KBd8390"
+    },
+    {
+      "_id": {
+        "$oid": "c5449691bd12e1532cdae09d"
+      },
+      "companyName": "Valguarnera e figli",
+      "vatNumber": "IT20844207841",
+      "phone": "+39 6557 0837122",
+      "email": "salandragianna@marcacci.eu",
+      "region": "Lazio",
+      "province": "PS",
+      "common": "Quarto Cipriano",
+      "cap": "55393",
+      "houseNumber": "830",
+      "address": "Strada Gasperi",
+      "latitude": -15.592674,
+      "longitude": -83.503853,
+      "pec": "azegliosquarcione@libero.it",
+      "sdiCode": "OoI8947"
+    },
+    {
+      "_id": {
+        "$oid": "2a58f7dcf59139a982f740d7"
+      },
+      "companyName": "Rossi, Niggli e Boezio e figli",
+      "vatNumber": "IT76303554730",
+      "phone": "+39 42 16834244",
+      "email": "galvaniranieri@viviani.com",
+      "region": "Trentino-Alto Adige",
+      "province": "SA",
+      "common": "Modiano lido",
+      "cap": "64060",
+      "houseNumber": "359",
+      "address": "Strada Leone",
+      "latitude": -0.395154,
+      "longitude": -64.885738,
+      "pec": "gtornatore@live.com",
+      "sdiCode": "pld8187"
+    },
+    {
+      "_id": {
+        "$oid": "9f10750f63a5e359b8fd2299"
+      },
+      "companyName": "Bataglia-Tomei SPA",
+      "vatNumber": "IT65052621804",
+      "phone": "+39 3785 03875013",
+      "email": "vitovismara@bondumier-rossini.com",
+      "region": "Piemonte",
+      "province": "GE",
+      "common": "Guarneri ligure",
+      "cap": "01903",
+      "houseNumber": "0",
+      "address": "Canale Bocca",
+      "latitude": 44.884963,
+      "longitude": 2.374318,
+      "pec": "delfinofalcone@live.com",
+      "sdiCode": "BmL5155"
+    },
+    {
+      "_id": {
+        "$oid": "d40181e2d6f036aed050792b"
+      },
+      "companyName": "Lucarelli, Lettiere e Monicelli SPA",
+      "vatNumber": "IT82115550193",
+      "phone": "+39 372 2447593",
+      "email": "federicoturrini@lippomano.net",
+      "region": "Friuli Venezia Giulia",
+      "province": "TO",
+      "common": "Geronimo sardo",
+      "cap": "30311",
+      "houseNumber": "939",
+      "address": "Via Maria",
+      "latitude": 73.632007,
+      "longitude": -63.911997,
+      "pec": "sandrasbarbaro@hotmail.it",
+      "sdiCode": "MgJ5591"
+    },
+    {
+      "_id": {
+        "$oid": "50fe61a9ba2e1dbe9ddee0d4"
+      },
+      "companyName": "Palmisano s.r.l.",
+      "vatNumber": "IT98751577266",
+      "phone": "+39 43 9900058",
+      "email": "beatricefederici@morellato-tozzi.com",
+      "region": "Valle d'Aosta",
+      "province": "PV",
+      "common": "Vasari laziale",
+      "cap": "80540",
+      "houseNumber": "171",
+      "address": "Stretto Puglisi",
+      "latitude": -57.024884,
+      "longitude": 10.269607,
+      "pec": "imeldatonisto@libero.it",
+      "sdiCode": "Wes5135"
+    },
+    {
+      "_id": {
+        "$oid": "1ec2fb6bec66bbe8884498c8"
+      },
+      "companyName": "Nordio SPA",
+      "vatNumber": "IT45124078314",
+      "phone": "+39 166 0746932",
+      "email": "isacasellati@ferrabosco.com",
+      "region": "Calabria",
+      "province": "TP",
+      "common": "Settimo Elena",
+      "cap": "88947",
+      "houseNumber": "90",
+      "address": "Via Nolcini",
+      "latitude": 34.339111,
+      "longitude": 51.266878,
+      "pec": "jacopo34@gmail.com",
+      "sdiCode": "nsF0384"
+    },
+    {
+      "_id": {
+        "$oid": "6e2f0c2ba741f4adcb998ab6"
+      },
+      "companyName": "Scotto-Toninelli e figli",
+      "vatNumber": "IT77667184810",
+      "phone": "+39 233 0200818",
+      "email": "spinelliluciana@sanguineti-mascagni.it",
+      "region": "Lazio",
+      "province": "MN",
+      "common": "Settimo Tiziana",
+      "cap": "37742",
+      "houseNumber": "1",
+      "address": "Borgo Carnera",
+      "latitude": -33.889712,
+      "longitude": -92.001552,
+      "pec": "rizzovincenzo@tiscali.it",
+      "sdiCode": "BOS2641"
+    },
+    {
+      "_id": {
+        "$oid": "2dccc0524e5e81ee83bd7829"
+      },
+      "companyName": "Ruberto-Torricelli e figli",
+      "vatNumber": "IT27451678572",
+      "phone": "+39 37 8055325",
+      "email": "romoloaloisio@tosi-bova.com",
+      "region": "Lombardia",
+      "province": "PV",
+      "common": "Giannini del friuli",
+      "cap": "65692",
+      "houseNumber": "91",
+      "address": "Vicolo Ziani",
+      "latitude": 15.307696,
+      "longitude": -31.503119,
+      "pec": "venancio08@vodafone.it",
+      "sdiCode": "xGd1131"
+    },
+    {
+      "_id": {
+        "$oid": "774fac6b56330da898e9fcc8"
+      },
+      "companyName": "Bignardi, Bonolis e Cianciolo s.r.l.",
+      "vatNumber": "IT81101648405",
+      "phone": "+39 795 2008605",
+      "email": "sabatinoubaldi@broggini-callegaro.it",
+      "region": "Liguria",
+      "province": "BI",
+      "common": "Sesto Gioacchino",
+      "cap": "61053",
+      "houseNumber": "491",
+      "address": "Borgo Ugo",
+      "latitude": -3.803312,
+      "longitude": -136.179753,
+      "pec": "bacciopolesel@moccia.net",
+      "sdiCode": "RPq3120"
+    },
+    {
+      "_id": {
+        "$oid": "73a0c2cc623226a32f7493ad"
+      },
+      "companyName": "Dandolo, Marini e Badoglio Group",
+      "vatNumber": "IT67607616199",
+      "phone": "+39 69 0230788",
+      "email": "caterina22@sonnino.com",
+      "region": "Emilia-Romagna",
+      "province": "NO",
+      "common": "Cabrini veneto",
+      "cap": "03167",
+      "houseNumber": "04",
+      "address": "Via Ninetta",
+      "latitude": -86.12991,
+      "longitude": 107.320166,
+      "pec": "michelotto83@vodafone.it",
+      "sdiCode": "cfx3369"
+    }
+  ]

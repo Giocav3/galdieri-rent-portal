@@ -1,0 +1,102 @@
+<div class="flex w-full flex-auto flex-col">
+    <div class="mx-auto flex w-full max-w-screen-xl flex-wrap p-5 md:p-8 justify-between">
+        <div>
+            <div class="text-3xl font-semibold leading-8 tracking-tight">
+                Dashboard
+            </div>
+            <div class="text-secondary font-medium tracking-tight">
+                Monitora, cerca e visualizza informazioni
+            </div>
+        </div>
+        <div class="ml-6 flex items-center">
+            <!-- <button class="hidden sm:inline-flex" mat-stroked-button>
+                <mat-icon
+                    class="icon-size-5"
+                    [svgIcon]="'heroicons_solid:cog-8-tooth'"
+                ></mat-icon>
+                <span class="ml-2">Settings</span>
+            </button> -->
+            <!-- <button
+                class="ml-3 hidden sm:inline-flex"
+                mat-flat-button
+                [color]="'primary'"
+            >
+                <mat-icon
+                    class="icon-size-5"
+                    [svgIcon]="'heroicons_solid:arrow-up-tray'"
+                ></mat-icon>
+                <span class="ml-2">Export</span>
+            </button> -->
+
+            <!-- Actions menu (visible on xs) -->
+            <div class="sm:hidden">
+                <button [matMenuTriggerFor]="actionsMenu" mat-icon-button>
+                    <mat-icon
+                        [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+                    ></mat-icon>
+                </button>
+                <mat-menu #actionsMenu="matMenu">
+                    <!-- <button mat-menu-item>Export</button> -->
+                    <button mat-menu-item>Settings</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+
+    <div class="-mt-px flex-auto border-t pt-4 sm:pt-6">
+        <div class="mx-auto w-full max-w-screen-xl">
+            <!-- Tabs -->
+        
+          
+                <div
+                    class="grid w-full min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4"
+                >
+                   
+                    <!-- Github issues summary -->
+                    <!-- Dashboard stakeholder -->
+                    <div class="bg-card flex flex-auto flex-col overflow-hidden rounded-2xl p-6 shadow sm:col-span-2 md:col-span-4">
+                        <div class="flex flex-col items-start justify-between sm:flex-row">
+                        <div class="truncate text-lg font-medium leading-6 tracking-tight">
+                            Dashboard stakeholder
+                        </div>
+                        </div>
+                    
+                        <div class="mt-8 w-full grid grid-cols-1 gap-6 sm:mt-4 lg:grid-cols-2">
+                        <!-- Barplot (sinistra su desktop, sopra su mobile) -->
+                        <div class="w-full">
+                            <app-barplot [chartData]="data.chart" (barClick)="filterStakeholderByType1($event)"></app-barplot>
+                        </div>
+                    
+                        <!-- Overview cards (destra su desktop, sotto su mobile) -->
+                        <!-- <div class="flex flex-col w-full">
+                            <div class="text-secondary font-medium">Overview</div>
+                            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div
+                                *ngFor="let stakeholder of data"
+                                class="min-w-[160px] flex-shrink-0 cursor-pointer flex flex-col items-center justify-center rounded-2xl bg-indigo-50 px-4 py-6 text-indigo-800 transition hover:bg-indigo-100 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400 dark:hover:bg-opacity-10"
+                                (click)="filterStakeholderByType(stakeholder.type)"
+                            >
+                                <div class="text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
+                                {{ stakeholder.count }}
+                                </div>
+                                <div class="mt-1 text-sm font-medium sm:text-lg">
+                                {{ stakeholder.type }}
+                                </div>
+                            </div>
+                            </div>
+                        </div> -->
+                        <div class="flex flex-col w-full">
+                            <app-card [data]="data.list" [total]="total" (cardClick)="filterStakeholderByType($event)"></app-card>
+                        </div>
+                        </div>
+                    </div>
+  
+                  
+                </div>
+   
+            
+        </div>
+    </div>
+    
+
+</div>

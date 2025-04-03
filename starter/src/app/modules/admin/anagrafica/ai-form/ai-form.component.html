@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Aggiungi Contatto con AI</h2>
+<mat-dialog-content>
+  <form class="bg-card mt-4 flex flex-col overflow-hidden rounded px-8 pt-10 shadow" [formGroup]="form">
+    <p class="text-lg font-medium">Informazioni di Base</p>
+    <p class="text-secondary mb-6">
+      Inserisci le informazioni necessarie per aggiungere un nuovo contatto.
+    </p>
+
+    <!-- Dropdown per la tipologia di cliente -->
+    <div class="flex">
+      <mat-form-field class="flex-auto">
+        <mat-label>Tipologia Cliente</mat-label>
+        <mat-select formControlName="clientType">
+          <mat-option *ngFor="let type of clientTypes" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+        <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <!-- Input per Partita IVA (visibile solo se "Azienda" è selezionato) -->
+    <div *ngIf="form.get('clientType').value === 'Azienda'" class="flex">
+      <mat-form-field class="flex-auto">
+        <mat-label>Partita IVA</mat-label>
+        <input matInput formControlName="piva">
+        <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:building-office'"></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <!-- Input per Codice Fiscale (visibile solo se "Persona Fisica" è selezionato) -->
+    <div *ngIf="form.get('clientType').value === 'Persona Fisica'" class="flex">
+      <mat-form-field class="flex-auto">
+        <mat-label>Codice Fiscale</mat-label>
+        <input matInput formControlName="cf">
+        <mat-icon class="icon-size-5" matPrefix [svgIcon]="'heroicons_solid:identification'"></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <mat-divider class="mb-10 mt-6"></mat-divider>
+
+    <p class="text-lg font-medium">Dettagli Aggiuntivi</p>
+    <p class="text-secondary mb-6">
+      Aggiungi ulteriori dettagli per personalizzare il contatto.
+    </p>
+
+    <!-- Altri campi del form possono essere aggiunti qui -->
+
+    <mat-divider class="mb-10 mt-6"></mat-divider>
+
+    <div class="-mx-8 mt-8 flex items-center justify-end border-t bg-gray-50 px-8 py-5 dark:bg-gray-700">
+      <button mat-button (click)="onCancel()">Annulla</button>
+      <button class="ml-3 px-6" mat-flat-button [color]="'primary'" (click)="onSubmit()" [disabled]="form.invalid">
+        Salva
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

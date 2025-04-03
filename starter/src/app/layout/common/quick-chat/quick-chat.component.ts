@@ -3,6 +3,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DOCUMENT, DatePipe, NgClass, NgTemplateOutlet } from '@angular/common';
 import {
     AfterViewInit,
+    ChangeDetectorRef,
     Component,
     ElementRef,
     HostBinding,
@@ -63,8 +64,11 @@ export class QuickChatComponent implements OnInit, AfterViewInit, OnDestroy {
         private _renderer2: Renderer2,
         private _ngZone: NgZone,
         private _quickChatService: QuickChatService,
-        private _scrollStrategyOptions: ScrollStrategyOptions
-    ) {}
+        private _scrollStrategyOptions: ScrollStrategyOptions,
+        private _changeDetectorRef: ChangeDetectorRef
+    ) {
+        
+    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Decorated methods
@@ -323,6 +327,23 @@ export class QuickChatComponent implements OnInit, AfterViewInit, OnDestroy {
         // Otherwise, hide the overlay
         else {
             this._hideOverlay();
+        }
+    }
+
+
+    sendMessage() {
+        const messageText = this.messageInput.nativeElement.value;
+        if (messageText.trim()) {
+            this._quickChatService.sendMessage(this.chat.id, messageText)
+                .pipe(takeUntil(this._unsubscribeAll))
+                .subscribe((updatedChat) => {
+                    // Aggiorna la vista
+                    this.chat = updatedChat;
+                    this._changeDetectorRef.detectChanges(); // Forza il rilevamento delle modifiche
+                });
+    
+            // Pulisci il campo di input
+            this.messageInput.nativeElement.value = '';
         }
     }
 }

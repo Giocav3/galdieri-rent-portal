@@ -1,0 +1,30 @@
+<div class="text-secondary font-medium">Overview</div>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols1 gap-4">
+        <div
+        
+        class="min-w-[160px] flex-shrink-0 cursor-pointer flex flex-col items-center justify-center rounded-2xl bg-indigo-50 px-4 py-6 text-indigo-800 transition hover:bg-indigo-100 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400 dark:hover:bg-opacity-10"
+        (click)="onCardClick('Tutti')"
+        >
+        <div class="text-3xl font-semibold leading-none tracking-tight sm:text-4xl">
+            {{ total }}
+        </div>
+        <div class="mt-1 text-sm font-medium sm:text-lg">
+            Totale stakeholder
+        </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div
+        *ngFor="let stakeholder of data"
+        class="min-w-[160px] flex-shrink-0 cursor-pointer flex flex-col items-center justify-center rounded-2xl bg-indigo-50 px-4 py-6 text-indigo-800 transition hover:bg-indigo-100 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400 dark:hover:bg-opacity-10"
+        (click)="onCardClick(stakeholder.type)"
+        >
+        <div class="text-3xl font-semibold leading-none tracking-tight sm:text-4xl">
+            {{ stakeholder.count }}
+        </div>
+        <div class="mt-1 text-sm font-medium sm:text-lg">
+            {{ stakeholder.type }}
+        </div>
+    </div>
+</div>

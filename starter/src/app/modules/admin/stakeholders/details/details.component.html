@@ -1,0 +1,509 @@
+<!-- Migliorato: details.component.html -->
+<div class="flex w-full h-full flex-col overflow-auto">
+  <ng-container *ngIf=" !editMode && matchedStakeholders()[0] as match">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-4 bg-secondary text-white">
+      <button mat-icon-button matTooltip="Chiudi" (click)="closePanel()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="relative flex-1 overflow-auto p-6 sm:p-12">
+      <div class="w-full max-w-4xl mx-auto">
+
+        <!-- Avatar + Azioni -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="h-32 w-32 rounded-full ring-4 ring-white bg-gray-200 flex items-center justify-center text-4xl font-bold uppercase text-gray-600">
+            {{ getInitialsFromString(contact.stakeholder.companyName) }}
+          </div>
+          <button mat-stroked-button color="primary" (click)="toggleEditMode(true)">
+            <mat-icon>edit</mat-icon>
+            <span class="ml-2">Modifica</span>
+          </button>
+        </div>
+
+        <!-- Nome Azienda -->
+        <div class="text-2xl font-bold text-gray-800 mb-4">
+          {{ contact.stakeholder.companyName }}
+        </div>
+
+        <!-- Tag tipo stakeholder -->
+        <div *ngIf="contact?.matches?.length > 0" class="mb-8">
+          <mat-chip-list class="flex flex-wrap">
+            <mat-chip
+              *ngFor="let match of contact.matches"
+              [color]="getStakeholderConfig(match.stakeholderType).color"
+              selected
+              class="mr-2 mb-2"
+              matTooltip="{{ getStakeholderConfig(match.stakeholderType).tooltip }}"
+            >
+              <mat-icon class="mr-1" [inline]="true">
+                {{ getStakeholderConfig(match.stakeholderType).icon }}
+              </mat-icon>
+              {{ match.stakeholderType }}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+        
+
+        <!-- ANAGRAFICA -->
+        <div *ngIf="match.personalData">
+          <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>person</mat-icon>
+                <span class="ml-2">Anagrafica</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-gray-700">
+              <div>
+                <mat-icon>person</mat-icon>
+                <strong>Nome:</strong>
+                <ng-container *ngIf="!editMode; else editName">
+                  {{ match.personalData?.name }}
+                </ng-container>
+                <ng-template #editName>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['name']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>person</mat-icon>
+                <strong>Cognome:</strong>
+                <ng-container *ngIf="!editMode; else editSurname">
+                  {{ match.personalData?.surname }}
+                </ng-container>
+                <ng-template #editSurname>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['surname']">
+                </ng-template>
+              </div>
+            
+              <div class="flex items-center gap-2">
+                <mat-icon>badge</mat-icon>
+                <strong>Codice fiscale:</strong>
+                <ng-container *ngIf="!editMode; else editCf">
+                  {{ match.personalData?.fiscalCode }}
+                </ng-container>
+                <ng-template #editCf>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['fiscalCode']">
+                </ng-template>
+                <button *ngIf="!editMode" mat-icon-button (click)="copyToClipboard(match.personalData.fiscalCode)" matTooltip="Copia CF">
+                  <mat-icon>content_copy</mat-icon>
+                </button>
+              </div>
+            
+              <div>
+                <mat-icon>email</mat-icon>
+                <strong>Email:</strong>
+                <ng-container *ngIf="!editMode; else editEmail">
+                  {{ match.personalData?.email }}
+                </ng-container>
+                <ng-template #editEmail>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['email']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>call</mat-icon>
+                <strong>Telefono:</strong>
+                <ng-container *ngIf="!editMode; else editPhone">
+                  {{ match.personalData?.phone }}
+                </ng-container>
+                <ng-template #editPhone>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['phone']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>wc</mat-icon>
+                <strong>Sesso:</strong>
+                <ng-container *ngIf="!editMode; else editGender">
+                  {{ match.personalData?.gender }}
+                </ng-container>
+                <ng-template #editGender>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['gender']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>calendar_today</mat-icon>
+                <strong>Data nascita:</strong>
+                <ng-container *ngIf="!editMode; else editBirthday">
+                  {{ match.personalData?.birthday | date: 'longDate' }}
+                </ng-container>
+                <ng-template #editBirthday>
+                  <input matInput type="date" class="inline w-auto" [formControl]="personalForm.controls['birthday']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>place</mat-icon>
+                <strong>Luogo nascita:</strong>
+                <ng-container *ngIf="!editMode; else editBirthPlace">
+                  {{ match.personalData?.birthPlace }}
+                </ng-container>
+                <ng-template #editBirthPlace>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['birthPlace']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>location_city</mat-icon>
+                <strong>Provincia nascita:</strong>
+                <ng-container *ngIf="!editMode; else editBirthCounty">
+                  {{ match.personalData?.birthCounty }}
+                </ng-container>
+                <ng-template #editBirthCounty>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['birthCounty']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>school</mat-icon>
+                <strong>Titolo di studio:</strong>
+                <ng-container *ngIf="!editMode; else editTitle">
+                  {{ match.personalData?.title }}
+                </ng-container>
+                <ng-template #editTitle>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['title']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>home</mat-icon>
+                <strong>Indirizzo:</strong>
+                <ng-container *ngIf="!editMode; else editAddress">
+                  {{ match.personalData?.address }}
+                </ng-container>
+                <ng-template #editAddress>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['address']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>pin</mat-icon>
+                <strong>Civico:</strong>
+                <ng-container *ngIf="!editMode; else editHouseNumber">
+                  {{ match.personalData?.houseNumber }}
+                </ng-container>
+                <ng-template #editHouseNumber>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['houseNumber']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>mail</mat-icon>
+                <strong>CAP:</strong>
+                <ng-container *ngIf="!editMode; else editCap">
+                  {{ match.personalData?.cap }}
+                </ng-container>
+                <ng-template #editCap>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['cap']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>map</mat-icon>
+                <strong>Provincia:</strong>
+                <ng-container *ngIf="!editMode; else editProvince">
+                  {{ match.personalData?.province }}
+                </ng-container>
+                <ng-template #editProvince>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['province']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>location_city</mat-icon>
+                <strong>Comune:</strong>
+                <ng-container *ngIf="!editMode; else editCommon">
+                  {{ match.personalData?.common }}
+                </ng-container>
+                <ng-template #editCommon>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['common']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>public</mat-icon>
+                <strong>Regione:</strong>
+                <ng-container *ngIf="!editMode; else editRegion">
+                  {{ match.personalData?.region }}
+                </ng-container>
+                <ng-template #editRegion>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['region']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>my_location</mat-icon>
+                <strong>Latitudine:</strong>
+                <ng-container *ngIf="!editMode; else editLat">
+                  {{ match.personalData?.latitude }}
+                </ng-container>
+                <ng-template #editLat>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['latitude']">
+                </ng-template>
+              </div>
+            
+              <div>
+                <mat-icon>my_location</mat-icon>
+                <strong>Longitudine:</strong>
+                <ng-container *ngIf="!editMode; else editLon">
+                  {{ match.personalData?.longitude }}
+                </ng-container>
+                <ng-template #editLon>
+                  <input matInput class="inline w-auto" [formControl]="personalForm.controls['longitude']">
+                </ng-template>
+              </div>
+            </div>
+            
+          </mat-expansion-panel>
+        </div>
+
+        <!-- AZIENDA -->
+        <div *ngIf="match.companyData" class="mt-8">
+          <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>business</mat-icon>
+                <span class="ml-2">Azienda</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-card class="p-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-gray-700">
+                <div *ngIf="match.companyData?.companyName">
+                  <mat-icon>business</mat-icon> {{ match.companyData.companyName }}
+                </div>
+                <div *ngIf="match.companyData?.vatNumber" class="flex items-center gap-2">
+                  <mat-icon>pin</mat-icon> {{ match.companyData.vatNumber }}
+                  <button mat-icon-button (click)="copyToClipboard(match.companyData.vatNumber)" matTooltip="Copia P.IVA">
+                    <mat-icon>content_copy</mat-icon>
+                  </button>
+                </div>
+                <div *ngIf="match.companyData?.email">
+                  <mat-icon>email</mat-icon> {{ match.companyData.email }}
+                </div>
+                <div *ngIf="match.companyData?.phone">
+                  <mat-icon>call</mat-icon> {{ match.companyData.phone }}
+                </div>
+                <div *ngIf="match.companyData?.address">
+                  <mat-icon>home</mat-icon> {{ match.companyData.address }}
+                </div>
+                <div *ngIf="match.companyData?.houseNumber">
+                  <mat-icon>pin</mat-icon> {{ match.companyData.houseNumber }}
+                </div>
+                <div *ngIf="match.companyData?.cap">
+                  <mat-icon>mail</mat-icon> {{ match.companyData.cap }}
+                </div>
+                <div *ngIf="match.companyData?.province">
+                  <mat-icon>map</mat-icon> {{ match.companyData.province }}
+                </div>
+                <div *ngIf="match.companyData?.common">
+                  <mat-icon>location_city</mat-icon> {{ match.companyData.common }}
+                </div>
+                <div *ngIf="match.companyData?.region">
+                  <mat-icon>public</mat-icon> {{ match.companyData.region }}
+                </div>
+                <div *ngIf="match.companyData?.pec">
+                  <mat-icon>mark_email_read</mat-icon> {{ match.companyData.pec }}
+                </div>
+                <div *ngIf="match.companyData?.sdiCode">
+                  <mat-icon>qr_code</mat-icon> {{ match.companyData.sdiCode }}
+                </div>
+                <div *ngIf="match.companyData?.latitude">
+                  <mat-icon>my_location</mat-icon> {{ match.companyData.latitude }}
+                </div>
+                <div *ngIf="match.companyData?.longitude">
+                  <mat-icon>my_location</mat-icon> {{ match.companyData.longitude }}
+                </div>
+              </div>
+            </mat-card>
+          </mat-expansion-panel>
+        </div>
+
+        <!-- UserDetails: loop su tutti -->
+        <ng-container *ngFor="let m of matchedStakeholders()">
+          <ng-container *ngIf="m.userDetails">
+
+            <!-- Cliente -->
+            <div *ngIf="m.stakeholderType === 'Cliente'" class="mt-8">
+              <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <mat-icon>assignment_ind</mat-icon>
+                    <span class="ml-2">Dettagli Cliente</span>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card class="p-6">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base text-gray-700">
+                    <div *ngIf="m.userDetails?.iban" class="flex items-center gap-2">
+                      <mat-icon>account_balance</mat-icon> {{ m.userDetails.iban }}
+                      <button mat-icon-button (click)="copyToClipboard(m.userDetails.iban)" matTooltip="Copia IBAN">
+                        <mat-icon>content_copy</mat-icon>
+                      </button>
+                    </div>
+                    <div *ngIf="m.userDetails?.clientCode">
+                      <mat-icon>confirmation_number</mat-icon> {{ m.userDetails.clientCode }}
+                    </div>
+                    <div *ngIf="m.userDetails?.origin">
+                      <mat-icon>public</mat-icon> {{ m.userDetails.origin }}
+                    </div>
+                    <div *ngIf="m.userDetails?.businessSector">
+                      <mat-icon>factory</mat-icon> {{ m.userDetails.businessSector }}
+                    </div>
+                    <div *ngIf="m.userDetails?.clientType">
+                      <mat-icon>groups</mat-icon> {{ m.userDetails.clientType }}
+                    </div>
+                    <div *ngIf="m.userDetails?.agreement">
+                      <mat-icon>description</mat-icon> {{ m.userDetails.agreement }}
+                    </div>
+                    <div *ngIf="m.userDetails?.sdiCode">
+                      <mat-icon>qr_code</mat-icon> {{ m.userDetails.sdiCode }}
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-expansion-panel>
+            </div>
+
+            <!-- Fornitore -->
+            <div *ngIf="m.stakeholderType === 'Fornitore'" class="mt-8">
+              <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <mat-icon>local_shipping</mat-icon>
+                    <span class="ml-2">Dettagli Fornitore</span>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card class="p-6">
+                  <div *ngIf="m.userDetails?.methodPayment">
+                    <mat-icon>credit_card</mat-icon> {{ m.userDetails.methodPayment }}
+                  </div>
+                </mat-card>
+              </mat-expansion-panel>
+            </div>
+
+            <!-- Dipendente -->
+            <div *ngIf="m.stakeholderType === 'Dipendente'" class="mt-8">
+              <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <mat-icon>badge</mat-icon>
+                    <span class="ml-2">Dettagli Dipendente</span>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card class="p-6">
+                  <div *ngIf="m.userDetails?.role">
+                    <mat-icon>assignment</mat-icon> {{ m.userDetails.role }}
+                  </div>
+                </mat-card>
+              </mat-expansion-panel>
+            </div>
+
+            <!-- Utilizzatore -->
+            <div *ngIf="m.stakeholderType === 'Utilizzatore'" class="mt-8">
+              <mat-expansion-panel class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <mat-icon>person_pin</mat-icon>
+                    <span class="ml-2">Dettagli Utilizzatore</span>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card class="p-6">
+                  <div *ngIf="m.userDetails?.reference">
+                    <mat-icon>location_on</mat-icon> {{ m.userDetails.reference }}
+                  </div>
+                </mat-card>
+              </mat-expansion-panel>
+            </div>
+
+          </ng-container>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </ng-container>
+
+<!-- INIZIO: Vista modifica (editMode) -->
+<ng-container *ngIf="editMode && matchedStakeholders()[0] as match">
+  <div class="flex w-full h-full flex-col overflow-auto">
+
+    <!-- Header (riutilizzato) -->
+    <div class="flex items-center justify-between px-6 py-4 bg-secondary text-white">
+      <button mat-icon-button matTooltip="Chiudi" (click)="closePanel()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="relative flex-1 overflow-auto p-6 sm:p-12">
+      <div class="w-full max-w-4xl mx-auto">
+
+        <!-- Avatar + Titolo -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="h-32 w-32 rounded-full ring-4 ring-white bg-gray-200 flex items-center justify-center text-4xl font-bold uppercase text-gray-600">
+            {{ getInitialsFromString(contact.stakeholder.companyName) }}
+          </div>
+          <h2 class="text-xl font-semibold text-gray-700">Modifica Anagrafica</h2>
+        </div>
+
+        <!-- Stepper Angular Material dentro ExpansionPanel -->
+        <mat-accordion class="mb-6">
+          <mat-expansion-panel expanded class="rounded-xl shadow-md bg-gray-50 dark:bg-gray-800">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon>person</mat-icon>
+                <span class="ml-2 font-medium">Dati Anagrafici</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-horizontal-stepper linear>
+              <mat-step [stepControl]="personalForm">
+                <form [formGroup]="personalForm">
+                  <ng-template matStepLabel>Dati Anagrafici</ng-template>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div *ngFor="let field of personalFormFields" class="flex flex-col gap-1">
+                      <label class="text-sm text-gray-600 flex items-center gap-2">
+                        <mat-icon>{{ field.icon }}</mat-icon>
+                        <span class="font-semibold">{{ field.label }}</span>
+                      </label>
+                      <mat-form-field appearance="outline" class="w-full">
+                        <input
+                          matInput
+                          [type]="field.type || 'text'"
+                          [formControlName]="field.key"
+                          [value]="match.personalData?.[field.key] || ''"
+                        />
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-end gap-4 mt-6">
+                    <button mat-flat-button color="primary" (click)="savePersonalData()" [disabled]="personalForm.invalid">
+                      <mat-icon>save</mat-icon>
+                      Salva
+                    </button>
+                    <button mat-stroked-button color="warn" (click)="toggleEditMode(false)">
+                      <mat-icon>cancel</mat-icon>
+                      Annulla
+                    </button>
+                  </div>
+                </form>
+              </mat-step>
+            </mat-horizontal-stepper>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!-- FINE: Vista modifica -->
+
+
+
+  
+</div>
