@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule],
+  imports: [CommonModule,MatTabsModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
