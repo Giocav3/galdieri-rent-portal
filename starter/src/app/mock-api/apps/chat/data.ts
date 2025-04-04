@@ -31,7 +31,7 @@ export const messages = [
         id: 'eb82cf4b-fa93-4bf4-a88a-99e987ddb7ea',
         chatId: 'ai-chat',
         contactId: 'ai',
-        value: 'Hello! How can I assist you today?',
+        value: 'Ciao, come posso aiutarti oggi?',
         createdAt: now
             .minus({ week: 1 })
             .set({
@@ -87,8 +87,8 @@ export const contacts = [
  */
 export const profile = {
     id: 'cfaad35d-07a3-4447-a6c3-d8c3d54fd5df',
-    name: 'Brian Hughes',
-    email: 'hughes.brian@company.com',
-    avatar: 'images/avatars/brian-hughes.jpg',
+    name: 'Giovanni Cavaliere',
+    email: 'giovanni.cavaliere@galdierirent.it',
+    avatar: 'images/avatars/myphoto.png',
     about: "Hi there! I'm using FuseChat.",
 };
