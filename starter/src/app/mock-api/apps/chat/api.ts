@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
 import {
     chats as chatsData,
@@ -20,7 +21,7 @@ export class ChatMockApi {
     /**
      * Constructor
      */
-    constructor(private _fuseMockApiService: FuseMockApiService, private _httpClient: HttpClient) {
+    constructor(private _fuseMockApiService: FuseMockApiService, private _httpClient: HttpClient, private route: Router) {
         // Register Mock API handlers
         this.registerHandlers();
 
@@ -156,11 +157,12 @@ export class ChatMockApi {
                 chat.messages.push(newMessage);
 
                 // Invia il messaggio al webhook di n8n
-                const webhookUrl = 'http://localhost:5678/webhook-test/2ed0f06a-91e3-4176-8372-1b74c0a0b598';
+                const webhookUrl = 'http://localhost:5678/webhook/chat-bot';
                 const payload = {
                     chatId,
                     messageText,
                     timestamp: new Date().toISOString(),
+                    route: this.route.url
                 };
 
                 const call =  this._httpClient.post(webhookUrl, payload).subscribe({
@@ -171,7 +173,7 @@ export class ChatMockApi {
                             id: String(Math.random() + 'ai-id'), // Generate a unique ID
                             chatId: chatId,
                             contactId: chat.contactId, // Assume the AI uses the contact ID of the chat
-                            value: this.formatWebhookResponse(response),
+                            value: response.output,
                             isMine: false,
                             createdAt: new Date(),
                         }; 
