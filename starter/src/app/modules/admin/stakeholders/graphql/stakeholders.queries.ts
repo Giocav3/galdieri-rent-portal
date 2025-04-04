@@ -77,9 +77,14 @@ export const GET_STAKEHOLDER_BY_ID = gql`
     userDetails {
       ... on ClientDetails {
         iban
-        sector
+        clientCode
+        origin
+        businessSector
+        clientType
+        agreement
+        associatedConsultant
+        sdiCode
         from
-        convention
       }
       ... on SupplierDetails {
         paymentMethod
@@ -135,4 +140,36 @@ export const GET_STAKEHOLDER_BY_ID = gql`
   }
 }
 `;
+
+export const GET_STAKEHOLDERS_MATCHES = gql`
+query StakeholdersByCompanyAndPersonal($companyData: ID!, $personalData: ID!) {
+  stakeholdersByCompanyAndPersonal(companyData: $companyData, personalData: $personalData) {
+    stakeholderType
+    userDetails {
+      ... on ClientDetails {
+        iban
+        clientCode
+        origin
+        businessSector
+        clientType
+        agreement
+        associatedConsultant
+        sdiCode
+        from
+      }
+      ... on SupplierDetails {
+        paymentMethod
+      }
+      ... on EmployeeDetails {
+        role
+        reference
+      }
+      ... on UtilizerDetails {
+        role
+        reference
+      }
+    }
+  }
+}
+`
 

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StakeholdersService } from './stakeholders.service';
+import { StakeholdersListService } from './list.service';
 
 describe('StakeholdersService', () => {
-  let service: StakeholdersService;
+  let service: StakeholdersListService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(StakeholdersService);
+    service = TestBed.inject(StakeholdersListService);
   });
 
   it('should be created', () => {
