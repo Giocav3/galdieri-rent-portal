@@ -29,6 +29,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/stakeholders'
+    },
+    {
+        id   : 'project-management',
+        title: 'Progetti',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/project-management'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -59,6 +66,13 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/stakeholders'
+    },
+    {
+        id   : 'project-management',
+        title: 'Progetti',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/project-management'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -89,6 +103,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/stakeholders'
+    },
+    {
+        id   : 'project-management',
+        title: 'Progetti',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/project-management'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -119,5 +140,12 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/stakeholders'
+    },
+    {
+        id   : 'project-management',
+        title: 'Progetti',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/project-management'
     }
 ];

@@ -22,7 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; // questo è fondamentale!
 
-import { ContactsDetailsComponent } from '../stakeholders/details/details.component'; // path corretto
+//import { ContactsDetailsComponent } from '../stakeholders/details/details.component'; // path corretto
 import { ContactsListComponent } from '../anagrafica/list/list.component';
 import { MatDialog } from '@angular/material/dialog';
 import { StakeholderFormComponent } from './stakeHolders-form/stakeholder-form.component';

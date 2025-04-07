@@ -77,7 +77,8 @@ export const appRoutes: Route[] = [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.routes')},
             {path: 'anagrafica', loadChildren: () => import('app/modules/admin/anagrafica/anagrafica.routes')},
             {path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboard/dashboard.routes')},
-            {path: 'stakeholders', loadChildren: () => import('app/modules/admin/stakeholders/stakeholders.routes')}
+            {path: 'stakeholders', loadChildren: () => import('app/modules/admin/stakeholders/stakeholders.routes')},
+            {path: 'project-management', loadChildren: () => import('app/modules/project-management/project-management.routes')}
         ]
     }
 ];

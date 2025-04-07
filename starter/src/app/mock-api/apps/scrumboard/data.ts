@@ -34,14 +34,14 @@ export const boards = [
             '0d1eb062-13d5-4286-b8d4-e0bea15f3d56',
         ],
     },
-    {
-        id: 'bc7db965-3c4f-4233-abf5-69bd70c3c175',
-        title: 'Personal Tasks',
-        description: 'Personal tasks around the house',
-        icon: 'heroicons_outline:home',
-        lastActivity: now.startOf('day').minus({ week: 1 }).toISO(),
-        members: ['6f6a1c34-390b-4b2e-97c8-ff0e0d787839'],
-    },
+    // {
+    //     id: 'bc7db965-3c4f-4233-abf5-69bd70c3c175',
+    //     title: 'Personal Tasks',
+    //     description: 'Personal tasks around the house',
+    //     icon: 'heroicons_outline:home',
+    //     lastActivity: now.startOf('day').minus({ week: 1 }).toISO(),
+    //     members: ['6f6a1c34-390b-4b2e-97c8-ff0e0d787839'],
+    // },
 ];
 export const lists = [
     {
